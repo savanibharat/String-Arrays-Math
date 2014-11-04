@@ -9,7 +9,7 @@ But using them properly is hard thing to do.
 Some times we encounter a string with length > 0 but it does not have anything in it.
 It contains only space.
  
-In this gist I try to explain how to use such string's in program.
+In this ReadMe I will try to explain how to use such Strings in program.
  
 Below is the utility method which is used to detect such Strings. 
  
