@@ -74,5 +74,3 @@ If there are any trailing white spaces they will be removed by loop
 		}
 		return sb;
 	}
-
-```
