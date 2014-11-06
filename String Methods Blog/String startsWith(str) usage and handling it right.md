@@ -7,7 +7,7 @@ In this blog we will see how to use startsWith() method of String API.
 ```
 String str="Sony Playstation";
 str.startsWith("Sony"); //returns true
-str.startsWith("Sony"); //returns false
+str.startsWith("Playstation"); //returns false
 ```
 
 We will use this function in such a way that it handles few extra conditions
