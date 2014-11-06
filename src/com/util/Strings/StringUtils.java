@@ -122,7 +122,7 @@ public class StringUtils {
 		return false;
 	}
 
-	// Trim first and last space from string
+	// Trim all first and all last spaces from string
 	/**
 	 * Trim white spaces sync.
 	 *
@@ -142,7 +142,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * Removes the leading white spaces.
+	 * Removes the all leading white spaces.
 	 *
 	 * @param sb
 	 *            the sb
@@ -156,7 +156,7 @@ public class StringUtils {
 	}
 
 	/**
-	 * Removes the trailing white spaces.
+	 * Removes the all trailing white spaces.
 	 *
 	 * @param sb
 	 *            the sb
@@ -350,6 +350,9 @@ public class StringUtils {
 
 		if (!hasLength(str) || !hasLength(subString) || str.length() == 0
 				|| subString.length() == 0) {
+			return 0;
+		}
+		if(subString.length()>str.length()){
 			return 0;
 		}
 		int count = 0;
@@ -999,5 +1002,16 @@ public class StringUtils {
 	 *            the arguments
 	 */
 	public static void main(String[] args) {
+		System.out.println("abcd".indexOf("a"));
+		System.out.println("abcd".indexOf('A'));
+		System.out.println("abcd".indexOf("b"));
+		System.out.println("abcd".indexOf('B'));
+		System.out.println("abcd".indexOf("c"));
+		System.out.println("abcd".indexOf('C'));
+		System.out.println("abcd".indexOf("d"));
+		System.out.println("abcd".indexOf('D'));
+		
+		System.out.println(endsWithIgnoreCase("Sony Playstation","station"));
+		
 	}
 }
