@@ -1,9 +1,9 @@
 package com.arithmetic;
-import com.util.arrays.ArrayUtils;
-
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import com.util.arrays.ArrayUtils;
 
 public class Mode {
 
