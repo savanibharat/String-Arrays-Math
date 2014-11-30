@@ -1,6 +1,6 @@
 package com.shape;
 
-public class Rectangle{
+public class Rectangle implements Shape{
 
 	/** The side a. */
 	private double sideA;
