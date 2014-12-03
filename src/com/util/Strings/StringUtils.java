@@ -1,4 +1,4 @@
-package com.util.Strings;
+package com.util.strings;
 
 
 import java.io.PrintWriter;
