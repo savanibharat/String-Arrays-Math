@@ -132,7 +132,7 @@ public class Point {
 
 	@Override
 	public String toString() {
-		return "[" + getX() + "," + getY() + "]";
+		return "(" + getX() + "," + getY() + ")";
 	}
 
 }
