@@ -111,4 +111,52 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
+	
+	/**
+	 * Checks if is sub set.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param setA
+	 *            the set a
+	 * @param setB
+	 *            the set b
+	 * @return true, if is sub set
+	 */
+	public static <T> boolean isSubSet(Set<T> setA, Set<T> setB) {
+
+		// SetA empty & SetB has values
+		if (isEmpty(setA) && !isEmpty(setB)) {
+			return false;
+		}
+
+		// SetA has values & SetB is empty
+		if (!isEmpty(setA) && isEmpty(setB)) {
+			return true;
+		}
+
+		// Both set are empty
+		if (isEmpty(setA) && isEmpty(setB)) {
+			return true;// double check
+		}
+
+		if (setA.equals(setB)) {
+			return true;
+		}
+
+		// If setA is subset of setB then setA size will be same or less than
+		// setB
+		if (setA.size() <= setB.size()) {
+
+			Iterator<T> iterA = setA.iterator();
+			while (iterA.hasNext()) {
+				if (!setB.contains(iterA.next())) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+	
 }
