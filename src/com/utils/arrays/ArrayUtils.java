@@ -68,4 +68,47 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
+	
+	/**
+	 * Intersection.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param setA
+	 *            the set a
+	 * @param setB
+	 *            the set b
+	 * @return the sets the
+	 */
+	public static <T> Set<T> intersection(Set<T> setA, Set<T> setB) {
+		// SetA empty & SetB has values
+		if (isEmpty(setA) && !isEmpty(setB)) {
+			return Collections.unmodifiableSet(new LinkedHashSet<T>());
+		}
+
+		// SetA has values & SetB is empty
+		if (!isEmpty(setA) && isEmpty(setB)) {
+			return Collections.unmodifiableSet(new LinkedHashSet<T>());
+		}
+
+		// Both set are empty
+		if (isEmpty(setA) && isEmpty(setB)) {
+			return Collections.unmodifiableSet(new LinkedHashSet<T>());
+		}
+
+		if (setA.equals(setB)) {
+			return setA;
+		}
+
+		Set<T> setC = new LinkedHashSet<T>();
+		Iterator<T> iterA = setA.iterator();
+
+		while (iterA.hasNext()) {
+			T obj = iterA.next();
+			if (setB.contains(obj)) {
+				setC.add(obj);
+			}
+		}
+		return Collections.unmodifiableSet(setC);
+	}
 }
