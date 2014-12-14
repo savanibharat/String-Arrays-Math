@@ -212,4 +212,54 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
+	
+	/**
+	 * A = {1, 2, 3, 4, 5} and B = {3, 4, 5, 6, 7, 8}. To find the difference A
+	 * - B of these two sets, we begin by writing all of the elements of A, and
+	 * then take away every element of A that is also an element of B. Since A
+	 * shares the elements 3, 4 and 5 with B, this gives us the set difference A
+	 * - B = {1, 2 }.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param setA
+	 *            the set a
+	 * @param setB
+	 *            the set b
+	 * @return the sets the
+	 */
+
+	public static <T> Set<T> diffAbyB(Set<T> setA, Set<T> setB) {
+
+		// SetA empty & SetB has values
+		if (isEmpty(setA) && !isEmpty(setB)) {
+			return Collections.unmodifiableSet(setB);
+		}
+
+		// SetA has values & SetB is empty
+		if (!isEmpty(setA) && isEmpty(setB)) {
+			return Collections.unmodifiableSet(setA);
+		}
+
+		// Both set are empty
+		if (isEmpty(setA) && isEmpty(setB)) {
+			return Collections.unmodifiableSet(new LinkedHashSet<T>());
+		}
+
+		Set<T> setC = new LinkedHashSet<T>();
+		Iterator<T> iterA = setA.iterator();
+		Iterator<T> iterB = setB.iterator();
+
+		while (iterA.hasNext()) {
+			setC.add(iterA.next());
+		}
+		while (iterB.hasNext()) {
+			T o = iterB.next();
+			if (setC.contains(o)) {
+				setC.remove(o);
+			}
+		}
+		return Collections.unmodifiableSet(setC);
+	}
+	
 }
