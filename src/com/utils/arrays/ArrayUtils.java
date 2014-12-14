@@ -1,5 +1,6 @@
 package com.utils.arrays;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -159,4 +160,56 @@ public class ArrayUtils {
 		return false;
 	}
 	
+	/**
+	 * Cartesian product.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param setA
+	 *            the set a
+	 * @param setB
+	 *            the set b
+	 * @return the sets the
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> Set<T> cartesianProduct(Set<T> setA, Set<T> setB) {
+
+		// SetA empty & SetB has values
+		if (isEmpty(setA) && !isEmpty(setB)) {
+			return Collections.unmodifiableSet(setB);
+		}
+
+		// SetA has values & SetB is empty
+		if (!isEmpty(setA) && isEmpty(setB)) {
+			return Collections.unmodifiableSet(setA);
+		}
+
+		// Both set are empty
+		if (isEmpty(setA) && isEmpty(setB)) {
+			return Collections.unmodifiableSet(new LinkedHashSet<T>());
+		}
+
+		T[] A = (T[]) setA.toArray();
+		T[] B = (T[]) setB.toArray();
+
+		ArrayList<ArrayList<T>> list = new ArrayList<ArrayList<T>>();
+		ArrayList<T> subList = new ArrayList<T>();
+
+		for (int i = 0; i < A.length; i++) {
+			for (int j = 0; j < B.length; j++) {
+
+				subList.add(A[i]);
+				subList.add(B[j]);
+				list.add(subList);
+				subList = new ArrayList<T>();
+			}
+		}
+
+		Set<T> setC = new LinkedHashSet<T>();
+		Iterator<ArrayList<T>> listIter = list.iterator();
+		while (listIter.hasNext()) {
+			setC.add((T) listIter.next());
+		}
+		return Collections.unmodifiableSet(setC);
+	}
 }
