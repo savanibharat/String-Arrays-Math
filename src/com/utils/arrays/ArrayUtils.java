@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ArrayUtils {
@@ -262,4 +263,46 @@ public class ArrayUtils {
 		return Collections.unmodifiableSet(setC);
 	}
 	
+	/**
+	 * Union list.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param list1
+	 *            the list1
+	 * @param list2
+	 *            the list2
+	 * @return the list
+	 */
+	public static <T> List<T> unionList(List<T> list1, List<T> list2) {
+
+		if (isEmpty(list1) && isEmpty(list2)) {
+			return new ArrayList<T>();
+		}
+		// list1 empty & list2 has values
+		if (isEmpty(list1) && !isEmpty(list2)) {
+			return list2;
+		}
+
+		// list1 has values & list2 is empty
+		if (!isEmpty(list1) && isEmpty(list2)) {
+			return list1;
+		}
+
+		if (list1.equals(list2)) {
+			return list1;
+		}
+
+		List<T> list3 = new ArrayList<T>();
+		for (T object : list1) {
+			list2.add(object);
+		}
+
+		for (T object : list2) {
+			if (!list3.contains(object)) {
+				list3.add(object);
+			}
+		}
+		return list3;
+	}
 }
