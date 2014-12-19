@@ -25,7 +25,7 @@ public class ArrayUtils {
 			return true;
 		return false;
 	}
-	
+
 	/**
 	 * Union.
 	 *
@@ -70,7 +70,7 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
-	
+
 	/**
 	 * Intersection.
 	 *
@@ -113,7 +113,7 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
-	
+
 	/**
 	 * Checks if is sub set.
 	 *
@@ -160,7 +160,7 @@ public class ArrayUtils {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Cartesian product.
 	 *
@@ -213,7 +213,7 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
-	
+
 	/**
 	 * A = {1, 2, 3, 4, 5} and B = {3, 4, 5, 6, 7, 8}. To find the difference A
 	 * - B of these two sets, we begin by writing all of the elements of A, and
@@ -262,7 +262,7 @@ public class ArrayUtils {
 		}
 		return Collections.unmodifiableSet(setC);
 	}
-	
+
 	/**
 	 * Union list.
 	 *
@@ -289,20 +289,23 @@ public class ArrayUtils {
 			return list1;
 		}
 
-		if (list1.equals(list2)) {
-			return list1;
-		}
-
 		List<T> list3 = new ArrayList<T>();
-		for (T object : list1) {
-			list2.add(object);
-		}
+		Set<T> set = new LinkedHashSet<T>(list1);
 
-		for (T object : list2) {
-			if (!list3.contains(object)) {
-				list3.add(object);
-			}
-		}
+		set.addAll(list2);
+		list3.addAll(set);
+		
 		return list3;
+	}
+
+	public static void main(String[] args) {
+
+		List<Integer> list1 = new ArrayList<Integer>();
+		list1.add(1);
+		list1.add(1);
+		List<Integer> list2 = new ArrayList<Integer>();
+		list2.add(1);
+		list2.add(2);
+		System.out.println(unionList(list1, list2));
 	}
 }
