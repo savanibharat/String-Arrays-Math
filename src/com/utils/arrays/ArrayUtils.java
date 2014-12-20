@@ -298,6 +298,47 @@ public class ArrayUtils {
 		return list3;
 	}
 
+	/**
+	 * Intersect list.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param list1
+	 *            the list1
+	 * @param list2
+	 *            the list2
+	 * @return the list
+	 */
+	public static <T> List<T> intersectList(List<T> list1, List<T> list2) {
+
+		if (isEmpty(list1) && isEmpty(list2)) {
+			return new ArrayList<T>();
+		}
+		// list1 empty & list2 has values
+		if (isEmpty(list1) && !isEmpty(list2)) {
+			return new ArrayList<T>();
+		}
+
+		// list1 has values & list2 is empty
+		if (!isEmpty(list1) && isEmpty(list2)) {
+			return new ArrayList<T>();
+		}
+
+		if (list1.equals(list2)) {
+			return list1;
+		}
+
+		List<T> list3 = new ArrayList<T>();
+		for (T object : list1) {
+			if (list2.contains(object)) {
+				if (!list3.contains(object)) {
+					list3.add(object);
+				}
+			}
+		}
+		return list3;
+	}
+	
 	public static void main(String[] args) {
 
 		List<Integer> list1 = new ArrayList<Integer>();
@@ -308,4 +349,5 @@ public class ArrayUtils {
 		list2.add(2);
 		System.out.println(unionList(list1, list2));
 	}
+	
 }
