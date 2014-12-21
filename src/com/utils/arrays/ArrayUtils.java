@@ -339,6 +339,53 @@ public class ArrayUtils {
 		return list3;
 	}
 	
+	/**
+	 * Checks if is sub set list.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param list1
+	 *            the list1
+	 * @param list2
+	 *            the list2
+	 * @return true, if is sub set list
+	 */
+	public static <T> boolean isSubSetList(List<T> list1, List<T> list2) {
+
+		// SetA empty & SetB has values
+		if (isEmpty(list1) && !isEmpty(list2)) {
+			return false;
+		}
+
+		// SetA has values & SetB is empty
+		if (!isEmpty(list1) && isEmpty(list2)) {
+			return true;
+		}
+
+		// Both set are empty
+		if (isEmpty(list1) && isEmpty(list2)) {
+			return true;// double check
+		}
+
+		if (list1.equals(list2)) {
+			return true;
+		}
+
+		// If setA is subset of setB then setA size will be same or less than
+		// setB
+		if (list1.size() <= list2.size()) {
+
+			Iterator<T> iterA = list1.iterator();
+			while (iterA.hasNext()) {
+				if (!list2.contains(iterA.next())) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+	
 	public static void main(String[] args) {
 
 		List<Integer> list1 = new ArrayList<Integer>();
