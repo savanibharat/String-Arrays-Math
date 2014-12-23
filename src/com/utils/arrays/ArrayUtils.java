@@ -386,15 +386,68 @@ public class ArrayUtils {
 		return false;
 	}
 	
+	/**
+	 * Cartesian product list.
+	 *
+	 * @param <T>
+	 *            the generic type
+	 * @param listA
+	 *            the list a
+	 * @param listB
+	 *            the list b
+	 * @return the list
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> List<T> cartesianProductList(List<T> listA, List<T> listB) {
+
+		// ListA empty & ListB has values
+		if (isEmpty(listA) && !isEmpty(listB)) {
+			return listB;
+		}
+
+		// ListA has values & List is empty
+		if (!isEmpty(listA) && isEmpty(listB)) {
+			return listA;
+		}
+
+		// Both List are empty
+		if (isEmpty(listA) && isEmpty(listB)) {
+			return new ArrayList<T>();
+		}
+
+		T[] A = (T[]) listA.toArray();
+		T[] B = (T[]) listB.toArray();
+
+		ArrayList<ArrayList<T>> list = new ArrayList<ArrayList<T>>();
+		ArrayList<T> subList = new ArrayList<T>();
+
+		for (int i = 0; i < A.length; i++) {
+			for (int j = 0; j < B.length; j++) {
+				subList.add(A[i]);
+				subList.add(B[j]);
+				if (!list.contains(subList)) {
+					list.add(subList);
+				}
+				subList = new ArrayList<T>();
+			}
+		}
+		ArrayList<T> setC = new ArrayList<T>();
+		Iterator<ArrayList<T>> listIter = list.iterator();
+		while (listIter.hasNext()) {
+			setC.add((T) listIter.next());
+		}
+		return setC;
+	}
+	
 	public static void main(String[] args) {
 
 		List<Integer> list1 = new ArrayList<Integer>();
 		list1.add(1);
-		list1.add(1);
+		list1.add(2);
 		List<Integer> list2 = new ArrayList<Integer>();
-		list2.add(1);
-		list2.add(2);
-		System.out.println(unionList(list1, list2));
+		list2.add(3);
+		list2.add(4);
+		System.out.println(cartesianProductList(list1, list2));
 	}
 	
 }
