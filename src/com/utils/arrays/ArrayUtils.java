@@ -594,6 +594,57 @@ public class ArrayUtils {
 		return list;
 	}
 	
+	/**
+	 * Subtract integer lists.
+	 *
+	 * @param listA
+	 *            the list a
+	 * @param listB
+	 *            the list b
+	 * @return the list
+	 */
+	public static List<Integer> subtractIntegerLists(List<Integer> listA,
+			List<Integer> listB) {
+
+		// ListA empty & ListB has values
+		if (isEmpty(listA) && !isEmpty(listB)) {
+			return listB;
+		}
+
+		// ListA has values & ListB is empty
+		if (!isEmpty(listA) && isEmpty(listB)) {
+			return listA;
+		}
+
+		// Both List are empty
+		if (isEmpty(listA) && isEmpty(listB)) {
+			return new ArrayList<Integer>();
+		}
+
+		// [1,2,3,4,5]
+		// [3,4,5,6,7,8,9]
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		int i = 0;
+		int j = 0;
+
+		while (i < listA.size() && j < listB.size()) {
+			list.add(listA.get(i) - listB.get(j));
+			i++;
+			j++;
+
+		}
+		while (i < listA.size()) {
+			list.add(listA.get(i));
+			i++;
+		}
+		while (j < listB.size()) {
+			list.add(listB.get(j));
+			j++;
+		}
+		System.out.println("list is " + list);
+		return list;
+	}
+	
 	public static void main(String[] args) {
 
 		List<Integer> list1 = new ArrayList<Integer>();
