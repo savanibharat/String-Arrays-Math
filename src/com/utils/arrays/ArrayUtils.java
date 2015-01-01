@@ -10,6 +10,69 @@ import java.util.Set;
 
 public class ArrayUtils {
 
+	/** The Constant BYTE_ARRAY. */
+	public static final byte[] BYTE_ARRAY = new byte[0];
+
+	/** The Constant BYTE_WRAPPER_ARRAY. */
+	public static final Byte[] BYTE_WRAPPER_ARRAY = new Byte[0];
+
+	/** The Constant SHORT_ARRAY. */
+	public static final short[] SHORT_ARRAY = new short[0];
+
+	/** The Constant SHORT_WRAPPER_ARRAY. */
+	public static final Short[] SHORT_WRAPPER_ARRAY = new Short[0];
+
+	/** The Constant INT_ARRAY. */
+	public static final int[] INT_ARRAY = new int[0];
+
+	/** The Constant INTEGER_WRAPPER_ARRAY. */
+	public static final Integer[] INTEGER_WRAPPER_ARRAY = new Integer[0];
+
+	/** The Constant LONG_ARRAY. */
+	public static final long[] LONG_ARRAY = new long[0];
+
+	/** The Constant LONG_WRAPPER_ARRAY. */
+	public static final Long[] LONG_WRAPPER_ARRAY = new Long[0];
+
+	/** The Constant FLOAT_ARRAY. */
+	public static final float[] FLOAT_ARRAY = new float[0];
+
+	/** The Constant FLOAT_WRAPPER_ARRAY. */
+	public static final Float[] FLOAT_WRAPPER_ARRAY = new Float[0];
+
+	/** The Constant DOUBLE_ARRAY. */
+	public static final double[] DOUBLE_ARRAY = new double[0];
+
+	/** The Constant DOUBLE_WRAPPER_ARRAY. */
+	public static final Double[] DOUBLE_WRAPPER_ARRAY = new Double[0];
+
+	/** The Constant BOOLEAN_ARRAY. */
+	public static final boolean[] BOOLEAN_ARRAY = new boolean[0];
+
+	/** The Constant BOOLEAN_WRAPPER_ARRAY. */
+	public static final Boolean[] BOOLEAN_WRAPPER_ARRAY = new Boolean[0];
+
+	/** The Constant CHAR_ARRAY. */
+	public static final char[] CHAR_ARRAY = new char[0];
+
+	/** The Constant CHARACTER_WRAPPER_ARRAY. */
+	public static final Character[] CHARACTER_WRAPPER_ARRAY = new Character[0];
+
+	/** The Constant OBJECT_ARRAY. */
+	public static final Object[] OBJECT_ARRAY = new Object[0];
+
+	/** The Constant INTEGER_LIST. */
+	public static final List<Integer> INTEGER_LIST = new ArrayList<Integer>();
+
+	/** The Constant FLOAT_LIST. */
+	public static final List<Float> FLOAT_LIST = new ArrayList<Float>();
+
+	/** The Constant LONG_LIST. */
+	public static final List<Long> LONG_LIST = new ArrayList<Long>();
+
+	/** The Constant DOUBLE_LIST. */
+	public static final List<Double> DOUBLE_LIST = new ArrayList<Double>();
+	
 	/**
 	 * Checks if is empty.
 	 *
