@@ -8,8 +8,16 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+
+
 public class ArrayUtils {
 
+	/**
+	 * The Primitives and the Wrapper classes are used to initialize the array of length 0.
+	 * This arrays are used as return value if the parameter passed array is null or length is 0.
+	 * This utilities are used as a means of not to duplicate the code for null or length of 0.
+	 **/
+	
 	/** The Constant BYTE_ARRAY. */
 	public static final byte[] BYTE_ARRAY = new byte[0];
 
@@ -61,6 +69,12 @@ public class ArrayUtils {
 	/** The Constant OBJECT_ARRAY. */
 	public static final Object[] OBJECT_ARRAY = new Object[0];
 
+	/**
+	 * List<ANY> is null 
+	 * ANY - Integer, Float, Long, Double
+	 * 
+	 * Used for conversion of Primitive array to List<ANY> 
+	 * */
 	/** The Constant INTEGER_LIST. */
 	public static final List<Integer> INTEGER_LIST = new ArrayList<Integer>();
 
@@ -72,9 +86,9 @@ public class ArrayUtils {
 
 	/** The Constant DOUBLE_LIST. */
 	public static final List<Double> DOUBLE_LIST = new ArrayList<Double>();
-	
+
 	/**
-	 * Checks if is empty.
+	 * Checks if Collection is empty.
 	 *
 	 * @param <E>
 	 *            the element type
@@ -90,7 +104,7 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * Union.
+	 * Union of 2 sets 
 	 *
 	 * @param <T>
 	 *            the generic type
@@ -98,33 +112,58 @@ public class ArrayUtils {
 	 *            the set a
 	 * @param setB
 	 *            the set b
-	 * @return the sets the
+	 * @return the setC
+	 * 			  the set c as Collections.unmodifiableSet(setC);
 	 */
 	public static <T> Set<T> union(Set<T> setA, Set<T> setB) {
 
-		// SetA empty & SetB has values
+		/**
+		 * SetA empty & SetB has values
+		 * SetA is null or 0 in length.
+		 * SetB contains values.
+		 * Return SetB as UnModifiableSet
+		 * */
 		if (isEmpty(setA) && !isEmpty(setB)) {
 			return Collections.unmodifiableSet(setB);
 		}
 
-		// SetA has values & SetB is empty
+		/**
+		 * SetA has values & SetB empty
+		 * SetB is null or 0 in length.
+		 * SetA contains values.
+		 * Return SetA as UnModifiableSet
+		 * */
 		if (!isEmpty(setA) && isEmpty(setB)) {
 			return Collections.unmodifiableSet(setA);
 		}
 
-		// Both set are empty
+		/**
+		 * If both the Sets are empty then return new Set
+		 * need to return as Collections.unmodifiableSet(new LinkedHashSet<T>());
+		 * */
 		if (isEmpty(setA) && isEmpty(setB)) {
-			return new LinkedHashSet<T>();
+			return Collections.unmodifiableSet(new LinkedHashSet<T>());
 		}
 
+		/**
+		 * Checks for Set equality
+		 * */
 		if (setA.equals(setB)) {
 			return setA;
 		}
 
+		/**
+		 * Initialize a new SetC
+		 * Take iterator for SetA and SetB
+		 * */
 		Set<T> setC = new LinkedHashSet<T>();
 		Iterator<T> iterA = setA.iterator();
 		Iterator<T> iterB = setB.iterator();
 
+		/**
+		 * Add all values of SetA and SetB in SetC
+		 * */
+		
 		while (iterA.hasNext()) {
 			setC.add(iterA.next());
 		}
@@ -357,7 +396,7 @@ public class ArrayUtils {
 
 		set.addAll(list2);
 		list3.addAll(set);
-		
+
 		return list3;
 	}
 
@@ -401,7 +440,7 @@ public class ArrayUtils {
 		}
 		return list3;
 	}
-	
+
 	/**
 	 * Checks if is sub set list.
 	 *
@@ -448,7 +487,7 @@ public class ArrayUtils {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Cartesian product list.
 	 *
@@ -501,7 +540,7 @@ public class ArrayUtils {
 		}
 		return setC;
 	}
-	
+
 	/**
 	 * *************************************************************************
 	 * *****************.
@@ -554,8 +593,7 @@ public class ArrayUtils {
 		System.out.println("list is " + list);
 		return list;
 	}
-	
-	
+
 	/**
 	 * Adds the float lists.
 	 *
@@ -605,7 +643,7 @@ public class ArrayUtils {
 		System.out.println("list is " + list);
 		return list;
 	}
-	
+
 	/**
 	 * Adds the double lists.
 	 *
@@ -656,7 +694,7 @@ public class ArrayUtils {
 		System.out.println("list is " + list);
 		return list;
 	}
-	
+
 	/**
 	 * Subtract integer lists.
 	 *
@@ -707,7 +745,7 @@ public class ArrayUtils {
 		System.out.println("list is " + list);
 		return list;
 	}
-	
+
 	/**
 	 * Subtract float lists.
 	 *
@@ -758,7 +796,7 @@ public class ArrayUtils {
 		System.out.println("list is " + list);
 		return list;
 	}
-	
+
 	/**
 	 * Subtract double lists.
 	 *
@@ -809,16 +847,17 @@ public class ArrayUtils {
 		System.out.println("list is " + list);
 		return list;
 	}
-	
+
 	public static void main(String[] args) {
 
-		List<Integer> list1 = new ArrayList<Integer>();
+		Set<Integer> list1 = new LinkedHashSet<Integer>();
 		list1.add(1);
 		list1.add(2);
-		List<Integer> list2 = new ArrayList<Integer>();
-		list2.add(3);
-		list2.add(4);
-		System.out.println(cartesianProductList(list1, list2));
+		list1.add(3);
+		Set<Integer> list2 = new LinkedHashSet<Integer>();
+		list2.add(1);
+		list2.add(2);
+		System.out.println(union(list1, list2));
 	}
-	
+
 }
