@@ -14,7 +14,7 @@ public interface Matrix {
 	 *            the matrix
 	 * @return true, if is square matrix
 	 */
-	boolean isSquareMatrix(Matrix matrix);
+	boolean isSquareMatrix();
 
 	/** Returns the Row Length of the Matrix */
 	/**
@@ -24,7 +24,7 @@ public interface Matrix {
 	 *            the matrix
 	 * @return the row length
 	 */
-	int getRowLength(Matrix matrix);
+	int getRowLength();
 
 	/** Returns the Column Length of the Matrix */
 	/**
@@ -34,7 +34,7 @@ public interface Matrix {
 	 *            the matrix
 	 * @return the column length
 	 */
-	int getColumnLength(Matrix matrix);
+	int getColumnLength();
 
 	/** Returns the array for specified Row else returns null */
 	/**
@@ -64,7 +64,7 @@ public interface Matrix {
 	 *            the matrix
 	 * @return true, if is row vector
 	 */
-	boolean isRowVector(Matrix matrix);
+	boolean isRowVector();
 
 	/** Checks whether the Matrix is Column Vector or not */
 	/**
@@ -74,7 +74,7 @@ public interface Matrix {
 	 *            the matrix
 	 * @return true, if is column vector
 	 */
-	boolean isColumnVector(Matrix matrix);
+	boolean isColumnVector();
 	
 	/** Checks whether the Matrix is Empty or not
 	 * Rows -> 0
@@ -86,6 +86,6 @@ public interface Matrix {
 	 * @param matrix the matrix
 	 * @return true, if is empty matrix
 	 */
-	boolean isEmptyMatrix(Matrix matrix);
+	boolean isEmptyMatrix();
 
 }
