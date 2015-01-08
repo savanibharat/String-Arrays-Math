@@ -89,7 +89,7 @@ public class ArrayUtils {
 
 	/**
 	 * Checks if Collection is empty.
-	 *
+	 * 
 	 * @param <E>
 	 *            the element type
 	 * @param collection
@@ -907,8 +907,142 @@ public class ArrayUtils {
 		return list;
 	}
 
+	/**
+	 * To primitive.
+	 *
+	 * @param arr
+	 *            the arr
+	 * @return the int[]
+	 */
+	public static int[] toPrimitive(Integer[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+		if (arr.length == 0) {
+			return INT_ARRAY;
+		}
+		int[] result = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			result[i] = arr[i].intValue();
+		}
+		return result;
+	}
+
+	/**
+	 * To object.
+	 *
+	 * @param arr the arr
+	 * @return the integer[]
+	 */
+	public static Integer[] toObject(int[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+		if (arr.length == 0) {
+			return INTEGER_WRAPPER_ARRAY;
+		}
+		Integer[] result = new Integer[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			result[i] = arr[i];
+		}
+		return result;
+	}
+
+	/**
+	 * To primitive.
+	 *
+	 * @param arr
+	 *            the arr
+	 * @return the float[]
+	 */
+	public static float[] toPrimitive(Float[] arr) {
+		if (arr == null) {
+			return null;
+		}
+		if (arr.length == 0) {
+			return FLOAT_ARRAY;
+		}
+		float[] result = new float[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			result[i] = arr[i].floatValue();
+		}
+		return result;
+	}
+
+	/**
+	 * To object.
+	 *
+	 * @param arr the arr
+	 * @return the float[]
+	 */
+	public static Float[] toObject(float[] arr) {
+		if (arr == null) {
+			return null;
+		}
+		if (arr.length == 0) {
+			return FLOAT_WRAPPER_ARRAY;
+		}
+		Float[] result = new Float[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			result[i] = arr[i];
+		}
+		return result;
+	}
+
+	/**
+	 * To primitive.
+	 *
+	 * @param arr
+	 *            the arr
+	 * @return the double[]
+	 */
+	public static double[] toPrimitive(Double[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+		if (arr.length == 0) {
+			return DOUBLE_ARRAY;
+		}
+		double[] result = new double[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			result[i] = arr[i].doubleValue();
+		}
+		return result;
+	}
+
+	/**
+	 * To object.
+	 *
+	 * @param arr the arr
+	 * @return the double[]
+	 */
+	public static Double[] toObject(double[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+		if (arr.length == 0) {
+			return DOUBLE_WRAPPER_ARRAY;
+		}
+		Double[] result = new Double[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			result[i] = arr[i];
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
 
+		double [] d={1,2,3,4};
+		Double [] d1=toObject(d);
+		System.out.println(d1.length);
+		for (int i = 0; i < d1.length; i++) {
+			System.out.println(d1[i]);
+		}
+		
 		Set<Integer> list1 = new LinkedHashSet<Integer>();
 		list1.add(1);
 		list1.add(3);
