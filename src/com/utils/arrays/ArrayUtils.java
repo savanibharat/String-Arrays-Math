@@ -602,8 +602,6 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * *************************************************************************
-	 * *****************.
 	 *
 	 * @param listA
 	 *            the list a
@@ -908,7 +906,9 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * To primitive.
+	 * This method is used to convert the Integer(wrapper class objects) to 
+	 * primitive type. 
+	 * We use method intValue() which returns int.
 	 *
 	 * @param arr
 	 *            the arr
@@ -930,8 +930,14 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * To object.
-	 *
+	 * This method is used to convert the int(primitive) to Wrapper type. 
+	 * We dont use any method for this as compiler uses {@code Integer.valueOf(i);}
+	 * Converting a primitive value (an int, for example) into an object of the corresponding 
+	 * wrapper class (Integer) is called autoboxing. The Java compiler applies autoboxing when
+	 * a primitive value is:
+	 * 		Passed as a parameter to a method that expects an object of the corresponding wrapper class.
+     * 		Assigned to a variable of the corresponding wrapper class.
+
 	 * @param arr the arr
 	 * @return the integer[]
 	 */
@@ -951,7 +957,9 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * To primitive.
+	 * This method is used to convert the Float(wrapper class objects) to 
+	 * primitive type. 
+	 * We use method floatValue() which returns float.
 	 *
 	 * @param arr
 	 *            the arr
@@ -972,7 +980,13 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * To object.
+	 * This method is used to convert the float(primitive) to its Wrapper type Float. 
+	 * We don't use any method for this as compiler uses {@code Float.valueOf(i);}
+	 * Converting a primitive value (an float, for example) into an object of the corresponding 
+	 * wrapper class (Float) is called autoboxing. The Java compiler applies autoboxing when
+	 * a primitive value is:
+	 * 		Passed as a parameter to a method that expects an object of the corresponding wrapper class.
+     * 		Assigned to a variable of the corresponding wrapper class.
 	 *
 	 * @param arr the arr
 	 * @return the float[]
@@ -992,7 +1006,9 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * To primitive.
+	 * This method is used to convert the Double(wrapper class objects) to 
+	 * primitive type. 
+	 * We use method doubleValue() which returns double.
 	 *
 	 * @param arr
 	 *            the arr
@@ -1014,7 +1030,13 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * To object.
+	 * This method is used to convert the double(primitive) to its Wrapper type Double. 
+	 * We don't use any method for this as compiler uses {@code Double.valueOf(i);}
+	 * Converting a primitive value (an double, for example) into an object of the corresponding 
+	 * wrapper class (Double) is called autoboxing. The Java compiler applies autoboxing when
+	 * a primitive value is:
+	 * 		Passed as a parameter to a method that expects an object of the corresponding wrapper class.
+     * 		Assigned to a variable of the corresponding wrapper class.
 	 *
 	 * @param arr the arr
 	 * @return the double[]
