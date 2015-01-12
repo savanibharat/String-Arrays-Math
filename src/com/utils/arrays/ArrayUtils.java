@@ -1056,6 +1056,94 @@ public class ArrayUtils {
 		return result;
 	}
 	
+	/**
+	 * To list.
+	 *
+	 * @param arr the arr
+	 * @return the list
+	 */
+	public static List<Integer> toList(int[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+
+		if (arr.length == 0) {
+			return INTEGER_LIST;
+		}
+		List<Integer> result = new ArrayList<Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			result.add(arr[i]);
+		}
+		return result;
+	}
+
+	/**
+	 * To list.
+	 *
+	 * @param arr the arr
+	 * @return the list
+	 */
+	public static List<Float> toList(float[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+
+		if (arr.length == 0) {
+			return FLOAT_LIST;
+		}
+		List<Float> result = new ArrayList<Float>();
+		for (int i = 0; i < arr.length; i++) {
+			result.add(arr[i]);
+		}
+		return result;
+	}
+
+	/**
+	 * To list.
+	 *
+	 * @param arr the arr
+	 * @return the list
+	 */
+	public static List<Double> toList(double[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+
+		if (arr.length == 0) {
+			return DOUBLE_LIST;
+		}
+		List<Double> result = new ArrayList<Double>();
+		for (int i = 0; i < arr.length; i++) {
+			result.add(arr[i]);
+		}
+		return result;
+	}
+
+	/**
+	 * To list.
+	 *
+	 * @param arr the arr
+	 * @return the list
+	 */
+	public static List<Long> toList(long[] arr) {
+
+		if (arr == null) {
+			return null;
+		}
+
+		if (arr.length == 0) {
+			return LONG_LIST;
+		}
+		List<Long> result = new ArrayList<Long>();
+		for (int i = 0; i < arr.length; i++) {
+			result.add(arr[i]);
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
 
 		double [] d={1,2,3,4};
