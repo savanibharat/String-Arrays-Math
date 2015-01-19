@@ -1,25 +1,37 @@
 package com.matrix;
-
+/**
+ * More methods are yet to be added.
+ * */
 public interface MatrixOperations {
 
 	/**
-	 * Copy {@code this} matrix to another matrix and return object of Matrix
+	 * Copy {@code this} matrix to another matrix and return Matrix
 	 * */
-	Matrix copy();
+	RealMatrix copy();
 
-	/***/
-	Matrix trim();
+	/**
+	 * 
+	 * */
+	//RealMatrix trim();
 
-	/***/
-	Matrix add(Matrix matrix);
+	/**
+	 * Addition {@code this} matrix with matrix in paramter
+	 * */
+	RealMatrix add(RealMatrix matrix);
 
-	/***/
-	Matrix subtract(Matrix matrix);
+	/**
+	 * Subtract {@code this} matrix with matrix in paramter
+	 * */
+	RealMatrix subtract(RealMatrix matrix);
 
-	/***/
-	Matrix multiply(Matrix matrix);
+	/**
+	 * Multiply {@code this} matrix with matrix in paramter
+	 * */
+	RealMatrix multiply(RealMatrix matrix);
 
-	/***/
-	Matrix divide(Matrix matrix);
+	/**
+	 * Divide {@code this} matrix with matrix in paramter
+	 * */
+	RealMatrix divide(RealMatrix matrix);
 
 }
