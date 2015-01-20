@@ -7,7 +7,7 @@ public interface MatrixOperations {
 	/**
 	 * Copy {@code this} matrix to another matrix and return Matrix
 	 * */
-	RealMatrix copy();
+	Matrix copy();
 
 	/**
 	 * 
@@ -17,21 +17,21 @@ public interface MatrixOperations {
 	/**
 	 * Addition {@code this} matrix with matrix in paramter
 	 * */
-	RealMatrix add(RealMatrix matrix);
+	Matrix add(Matrix matrix);
 
 	/**
 	 * Subtract {@code this} matrix with matrix in paramter
 	 * */
-	RealMatrix subtract(RealMatrix matrix);
+	Matrix subtract(Matrix matrix);
 
 	/**
 	 * Multiply {@code this} matrix with matrix in paramter
 	 * */
-	RealMatrix multiply(RealMatrix matrix);
+	Matrix multiply(Matrix matrix);
 
 	/**
 	 * Divide {@code this} matrix with matrix in paramter
 	 * */
-	RealMatrix divide(RealMatrix matrix);
+	Matrix divide(Matrix matrix);
 
 }
