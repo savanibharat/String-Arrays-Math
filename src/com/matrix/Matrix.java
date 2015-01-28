@@ -8,6 +8,9 @@ public class Matrix implements RealMatrix {
 		this.m = m;
 	}
 
+	public Matrix() {
+	}
+
 	/**
 	 * Will throw NullPointerException is m is null. Use
 	 * */
@@ -175,39 +178,49 @@ public class Matrix implements RealMatrix {
 	 * */
 	public Matrix subtract(Matrix matrix) {
 
-		boolean isCompatibleMatrix = Matrix.subtractionCompatible(this, matrix);
-
-		if (isCompatibleMatrix) {
-			int row = this.getRowLength();
-			int col = this.getColumnLength();
-			double[][] c = new double[row][col];
-			for (int i = 0; i < row; i++) {
-				for (int j = 0; j < col; j++) {
-					c[i][j] = this.m[i][j] - matrix.m[i][j];
-				}
+		Matrix.subtractionCompatible(this, matrix);
+		this.displayMatrix();
+		matrix.displayMatrix();
+		// if (isCompatibleMatrix) {
+		int row = this.getRowLength();
+		int col = this.getColumnLength();
+		double[][] c = new double[row][col];
+		for (int i = 0; i < this.getRowLength(); i++) {
+			for (int j = 0; j < this.getColumnLength(); j++) {
+				c[i][j] = this.m[i][j] - matrix.m[i][j];
 			}
-			return new Matrix(c);
 		}
-		return null;
+		return new Matrix(c);
+		// }
+		// return new Matrix();
 	}
 
 	/**
 	 * Yet to implement this method.
 	 * */
-	public static boolean subtractionCompatible(Matrix matA, Matrix matB) {
-		return true;
+	public static void subtractionCompatible(Matrix matA, Matrix matB) {
+
+		if ((matA.getRowLength() != matB.getRowLength())
+				|| (matA.getColumnLength() != matB.getColumnLength())) {
+			/*
+			 * System.out.println("False"); return false;
+			 */
+			throw new IllegalArgumentException();
+		}
+		System.out.println("True");
+		// return true;
 	}
 
 	public static void main(String[] args) {
 
 		// double[][] m1 = { { 1d, 2d, 3d }, { 2d, 5d, 3d } };
-		double[][] m1 = { { 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 } };
-		double[][] m2 = { { 9, 10, 11 }, { 12, 13, 14 }, { 15, 16, 17 } };
+		double[][] m1 = { { 1, 2 }, { 3, 4, 5 } };
+		double[][] m2 = { { 9, 10 }, { 12, 13, 14 } };
 		Matrix mat1 = new Matrix(m1);
 		Matrix mat2 = new Matrix(m2);
-		mat1.displayMatrix();
+		// mat1.displayMatrix();
 		System.out.println();
-		mat2.displayMatrix();
+		// mat2.displayMatrix();
 		Matrix mat3 = mat1.subtract(mat2);
 		System.out.println();
 		mat3.displayMatrix();
