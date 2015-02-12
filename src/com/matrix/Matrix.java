@@ -212,50 +212,72 @@ public class Matrix implements RealMatrix {
 	 * */
 	public Matrix subtract(Matrix matrix) {
 
-		Matrix.subtractionCompatible(this, matrix);
-		this.displayMatrix();
-		matrix.displayMatrix();
-		// if (isCompatibleMatrix) {
-		int row = this.getRowLength();
-		int col = this.getColumnLength();
-		double[][] c = new double[row][col];
-		for (int i = 0; i < this.getRowLength(); i++) {
-			for (int j = 0; j < this.getColumnLength(); j++) {
-				c[i][j] = this.m[i][j] - matrix.m[i][j];
+		boolean isCompatibleMatrix = Matrix.subtractionCompatible(this, matrix);
+		if (isCompatibleMatrix) {
+			int row = this.getRowLength();
+			int col = this.getColumnLength();
+			double[][] c = new double[row][col];
+			for (int i = 0; i < this.getRowLength(); i++) {
+				for (int j = 0; j < this.getColumnLength(); j++) {
+					c[i][j] = this.m[i][j] - matrix.m[i][j];
+				}
 			}
+			return new Matrix(c);
 		}
-		return new Matrix(c);
-		// }
-		// return new Matrix();
+		return null;
 	}
 
 	/**
-	 * Yet to implement this method.
+	 * Use method additionCompatible
 	 * */
-	public static void subtractionCompatible(Matrix matA, Matrix matB) {
+	public static boolean subtractionCompatible(Matrix matA, Matrix matB) {
 
-		if ((matA.getRowLength() != matB.getRowLength())
-				|| (matA.getColumnLength() != matB.getColumnLength())) {
-			/*
-			 * System.out.println("False"); return false;
-			 */
-			throw new IllegalArgumentException();
-		}
-		System.out.println("True");
-		// return true;
+		return additionCompatible(matA, matB);
 	}
 
+	public Matrix multiply(Matrix matrix){
+		
+		boolean isCompatibleMatrix = Matrix.multiplicationCompatible(this, matrix);
+		if(isCompatibleMatrix){
+		
+			int row=this.getRowLength();
+			int col=matrix.getColumnLength();
+			double[][] multiply=new double[row][col];
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < col; j++) {
+					for (int k = 0; k < this.getColumnLength(); k++) {
+						multiply[i][j]=multiply[i][j]+(this.m[i][k]*matrix.m[k][j]);
+					}
+				}
+			}
+			return new Matrix(multiply);
+		}
+		return null;
+	}
+	public static boolean multiplicationCompatible(Matrix matA, Matrix matB){
+		
+		boolean isMatrixCompatible=isMatrixCompatible(matA, matB);
+		int colA=matA.getColumnLength();
+		int rowB=matB.getRowLength();
+		System.out.println(((isMatrixCompatible)&&colA==rowB));
+		return ((isMatrixCompatible)&&(colA==rowB));
+	}
+	
+	public static boolean isMatrixCompatible(Matrix matrix){
+		
+	}
+	
 	public static void main(String[] args) {
 
 		// double[][] m1 = { { 1d, 2d, 3d }, { 2d, 5d, 3d } };
-		double[][] m1 = { { 1, 2 }, { 3, 4 } };
-		double[][] m2 = { { 9, 10 }, { 12, 13 } };
-		Matrix mat1 = new Matrix(m1);
-		Matrix mat2 = new Matrix(m2);
+		double[][] m1 = { { 1, 0,-2 }, {0, 3, -1 } };
+		double[][] m2 = {{0,3},{-1,0},{0,4}};
+		Matrix mat1 = new Matrix(m2);
+		Matrix mat2 = new Matrix(m1);
 		mat1.displayMatrix();
 		System.out.println();
 		mat2.displayMatrix();
-		Matrix mat3 = mat1.add(mat2);
+		Matrix mat3 = mat1.multiply(mat2);
 		System.out.println();
 		mat3.displayMatrix();
 	}
