@@ -151,7 +151,7 @@ public class Matrix implements RealMatrix {
 	public Matrix add(Matrix matrix) {
 
 		boolean isCompatibleMatrix = Matrix.additionCompatible(this, matrix);
-
+		System.out.println(isCompatibleMatrix);
 		if (isCompatibleMatrix) {
 			int row = this.getRowLength();
 			int col = this.getColumnLength();
@@ -168,8 +168,42 @@ public class Matrix implements RealMatrix {
 
 	/**
 	 * Yet to implement this method.
+	 * 
+	 *0  1 2
+	 *1  3 4 5
+	 *2  6 7 8 9
+	 *  
+	 *0  4 5
+	 *1  5 6 7
+	 *2  1 2 3 4
+	 *  
+	 *  This 2 Matrix should not be added
 	 * */
 	public static boolean additionCompatible(Matrix matA, Matrix matB) {
+		int colA = matA.getColumnLength();
+		int colB = matB.getColumnLength();
+		
+		int rowA = matA.getRowLength();
+		int rowB = matB.getRowLength();
+		System.out.println("->"+rowA);
+		if ((colA != colB)||(rowA!=rowB)) {
+			return false;
+		}
+		int elemsA=matA.getRowElements(0).length;
+		for (int i = 1; i < rowA; i++) {
+			int temp=matA.getRowElements(i).length;
+			if(elemsA!=temp){
+				return false;
+			}
+		}
+
+		int elemsB=matB.getRowElements(0).length;
+		for (int i = 1; i < rowB; i++) {
+			int temp=matB.getRowElements(i).length;
+			if(elemsB!=temp){
+				return false;
+			}
+		}
 		return true;
 	}
 
@@ -214,14 +248,14 @@ public class Matrix implements RealMatrix {
 	public static void main(String[] args) {
 
 		// double[][] m1 = { { 1d, 2d, 3d }, { 2d, 5d, 3d } };
-		double[][] m1 = { { 1, 2 }, { 3, 4, 5 } };
-		double[][] m2 = { { 9, 10 }, { 12, 13, 14 } };
+		double[][] m1 = { { 1, 2 }, { 3, 4 } };
+		double[][] m2 = { { 9, 10 }, { 12, 13 } };
 		Matrix mat1 = new Matrix(m1);
 		Matrix mat2 = new Matrix(m2);
-		// mat1.displayMatrix();
+		mat1.displayMatrix();
 		System.out.println();
-		// mat2.displayMatrix();
-		Matrix mat3 = mat1.subtract(mat2);
+		mat2.displayMatrix();
+		Matrix mat3 = mat1.add(mat2);
 		System.out.println();
 		mat3.displayMatrix();
 	}
