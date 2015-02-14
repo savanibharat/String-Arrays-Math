@@ -185,7 +185,6 @@ public class Matrix implements RealMatrix {
 		
 		int rowA = matA.getRowLength();
 		int rowB = matB.getRowLength();
-		System.out.println("->"+rowA);
 		if ((colA != colB)||(rowA!=rowB)) {
 			return false;
 		}
@@ -254,26 +253,40 @@ public class Matrix implements RealMatrix {
 		}
 		return null;
 	}
+	
 	public static boolean multiplicationCompatible(Matrix matA, Matrix matB){
 		
-		boolean isMatrixCompatible=isMatrixCompatible(matA, matB);
+		boolean isMatrixCompatible1=isMatrixCompatible(matA);
+		boolean isMatrixCompatible2=isMatrixCompatible(matB);
 		int colA=matA.getColumnLength();
 		int rowB=matB.getRowLength();
-		System.out.println(((isMatrixCompatible)&&colA==rowB));
-		return ((isMatrixCompatible)&&(colA==rowB));
+		System.out.println(((isMatrixCompatible1&&isMatrixCompatible2)&&colA==rowB));
+		return ((isMatrixCompatible1&&isMatrixCompatible2)&&(colA==rowB));
 	}
 	
 	public static boolean isMatrixCompatible(Matrix matrix){
 		
+		int colA = matrix.getColumnLength();
+		int rowA = matrix.getRowLength();
+
+		int elemsA=matrix.getRowElements(0).length;
+		for (int i = 1; i < rowA; i++) {
+			int temp=matrix.getRowElements(i).length;
+			if(elemsA!=temp){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	public static void main(String[] args) {
 
 		// double[][] m1 = { { 1d, 2d, 3d }, { 2d, 5d, 3d } };
-		double[][] m1 = { { 1, 0,-2 }, {0, 3, -1 } };
-		double[][] m2 = {{0,3},{-1,0},{0,4}};
-		Matrix mat1 = new Matrix(m2);
-		Matrix mat2 = new Matrix(m1);
+		double[][] m1 = { { 1,2,3 }, { 4,5,6 } };
+		double[][] m2 = {{7,8},{9,10},{12}};
+		Matrix mat1 = new Matrix(m1);
+		Matrix mat2 = new Matrix(m2);
+		System.out.println("comatible "+Matrix.isMatrixCompatible(mat2));
 		mat1.displayMatrix();
 		System.out.println();
 		mat2.displayMatrix();
