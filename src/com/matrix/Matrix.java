@@ -1,6 +1,8 @@
 package com.matrix;
 
-public class Matrix implements RealMatrix {
+import java.util.Arrays;
+
+public class Matrix implements RealMatrix, MatrixOperations, ScalarOperations {
 
 	private double[][] m;
 
@@ -147,7 +149,17 @@ public class Matrix implements RealMatrix {
 	}
 	
 	/**
+	 * Identity Matrix are n*n matrix and diagonall filled 
+	 * by 1.
 	 * 
+	 * [1]
+	 * 
+	 * [1,0]
+	 * [0,1]
+	 * 
+	 * [1,0,0]
+	 * [0,1,0]
+	 * [0,0,1]
 	 * */
 	public static Matrix identityMatrix(int n){
 		
@@ -159,6 +171,29 @@ public class Matrix implements RealMatrix {
 		matrix.displayMatrix();
 		return null;
 		
+	}
+	
+	/**
+	 * Matrix Of Ones
+	 * matrix of ones or all-ones matrix is a matrix where every element is equal to one.
+	 * [1,1]
+	 * 
+	 * [1,1]
+	 * [1,1]
+	 * 
+	 * [1,1,1,1]
+	 * [1,1,1,1]
+	 * [1,1,1,1]
+	 * */
+	public static Matrix matrixOfOnes(int row, int column){
+		
+		Matrix matrix=new Matrix(row,column);
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				matrix.m[i][j]=1;
+			}
+		}
+		return matrix;
 	}
 	
 	/**
@@ -292,7 +327,6 @@ public class Matrix implements RealMatrix {
 
 	public static boolean isMatrixCompatible(Matrix matrix) {
 
-		int colA = matrix.getColumnLength();
 		int rowA = matrix.getRowLength();
 
 		int elemsA = matrix.getRowElements(0).length;
@@ -372,7 +406,25 @@ public class Matrix implements RealMatrix {
 		Matrix mat3 = mat1.transpose();
 		System.out.println();
 		mat3.displayMatrix();*/
-		Matrix m=Matrix.identityMatrix(3);
+		Matrix m=Matrix.matrixOfOnes(3,3);
 		
+	}
+	
+	/**
+	 * This method is to be implemented
+	 * */
+	@Override
+	public Matrix copy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * This method is to be implemented
+	 * */
+	@Override
+	public Matrix divide(Matrix matrix) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
