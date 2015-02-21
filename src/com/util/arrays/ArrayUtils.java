@@ -1144,6 +1144,249 @@ public class ArrayUtils {
 		return result;
 	}
 	
+	/**
+	 * This method returns the sub array of int[]
+	 * start and end values are handled gracefully
+	 * */
+	public static int[] subArray(int[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return INT_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return INT_ARRAY;
+		}
+		int[] result=new int[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of float[]
+	 * start and end values are handled gracefully
+	 * */
+	public static float[] subArray(float[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return FLOAT_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return FLOAT_ARRAY;
+		}
+		float[] result=new float[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of byte[]
+	 * start and end values are handled gracefully
+	 * */
+	public static byte[] subArray(byte[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return BYTE_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return BYTE_ARRAY;
+		}
+		byte[] result=new byte[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of short[]
+	 * start and end values are handled gracefully
+	 * */
+	public static short[] subArray(short[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return SHORT_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return SHORT_ARRAY;
+		}
+		short[] result=new short[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of long[]
+	 * start and end values are handled gracefully
+	 * */
+	public static long[] subArray(long[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return LONG_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return LONG_ARRAY;
+		}
+		long[] result=new long[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of double[]
+	 * start and end values are handled gracefully
+	 * */
+	public static double[] subArray(double[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return DOUBLE_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return DOUBLE_ARRAY;
+		}
+		double[] result=new double[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of boolean[]
+	 * start and end values are handled gracefully
+	 * */
+	public static boolean[] subArray(boolean[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return BOOLEAN_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return BOOLEAN_ARRAY;
+		}
+		boolean[] result=new boolean[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
+	/**
+	 * This method returns the sub array of char[]
+	 * start and end values are handled gracefully
+	 * */
+	public static char[] subArray(char[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return CHAR_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return CHAR_ARRAY;
+		}
+		char[] result=new char[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}	
+	
+	/**
+	 * This method returns the sub array of Object[]
+	 * start and end values are handled gracefully
+	 * */
+	public static Object[] subArray(Object[] a,int start,int end){
+		
+		if(a==null){
+			return null;
+		}
+		if(a.length==0){
+			return OBJECT_ARRAY;
+		}
+		if(start<0){
+			start=0;
+		}
+		if(end>=a.length){
+			end=a.length-1;
+		}
+		int resultSize=end-start;
+		if(resultSize<=0){
+			return OBJECT_ARRAY;
+		}
+		Object[] result=new Object[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+	
 	public static void main(String[] args) {
 
 		double [] d={1,2,3,4};
