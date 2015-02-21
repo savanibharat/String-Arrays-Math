@@ -58,5 +58,5 @@ There are *several functions* written in this utlity classes but *more* are yet 
 [Shape]:https://github.com/savanibharat/String-Arrays-Math/blob/master/src/com/shape/Shape.java
 [Square]:https://github.com/savanibharat/String-Arrays-Math/blob/master/src/com/shape/Square.java
 [Triangle]:https://github.com/savanibharat/String-Arrays-Math/blob/master/src/com/shape/Triangle.java
-[Array Utility]: https://github.com/savanibharat/String-Arrays-Math/blob/master/src/com/utils/arrays/ArrayUtils.java
+[Array Utility]: https://github.com/savanibharat/String-Arrays-Math/blob/master/src/com/util/arrays/ArrayUtils.java
 [String Methods Blog]:https://github.com/savanibharat/String-Arrays-Math/tree/master/String%20Methods%20Blog
