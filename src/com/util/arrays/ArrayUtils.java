@@ -1760,9 +1760,125 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
+	//int, float, char, double, byte, short, long, boolean
+	
+	public static boolean isSorted(int[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	public static boolean isSorted(float[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	public static boolean isSorted(char[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	public static boolean isSorted(double[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	public static boolean isSorted(byte[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	public static boolean isSorted(short[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	public static boolean isSorted(long[] a){
+		
+		if(a==null){
+			return false;
+		}
+		else if(a.length==0){
+			return true;
+		}
+		for (int i = 0; i < a.length-1; i++) {
+			if(a[i]>a[i+1]){
+				return false;
+			}			
+		}
+		return true;
+	}
+	
+	//int, float, char, double, byte, short, long, boolean
+	
 	public static void main(String[] args) {
 
-		int [] d={4,5,6,1,3,50};
-		System.out.println(lastIndexOf(d,150));
+		char [] d={'a','w','z'};
+		System.out.println(isSorted(d));
 	}
 }
