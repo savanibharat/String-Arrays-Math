@@ -1,6 +1,7 @@
 package com.util.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -86,6 +87,8 @@ public class ArrayUtils {
 
 	/** The Constant DOUBLE_LIST. */
 	public static final List<Double> DOUBLE_LIST = new ArrayList<Double>();
+	
+	public static final int INDEX_NOT_FOUND =-1;
 
 	/**
 	 * Checks if Collection is empty.
@@ -1387,25 +1390,55 @@ public class ArrayUtils {
 		return result;
 	}
 	
-	public static void main(String[] args) {
-
-		double [] d={1,2,3,4};
-		Double [] d1=toObject(d);
-		System.out.println(d1.length);
-		for (int i = 0; i < d1.length; i++) {
-			System.out.println(d1[i]);
-		}
-		
-		Set<Integer> list1 = new LinkedHashSet<Integer>();
-		list1.add(1);
-		list1.add(3);
-		System.out.println("SetA "+list1);
-		//list1.add(3);
-		Set<Integer> list2 = new LinkedHashSet<Integer>();
-		list2.add(43);
-		list2.add(47);
-		System.out.println("SetB "+list2);
-		System.out.println("Cartesian Product "+cartesianProduct(list1, list2));
+	public static boolean contains(int[] a, int key, int startIndex) {
+		return !(indexOf(a, key,startIndex) == INDEX_NOT_FOUND);
 	}
 
+	public static boolean contains(int[] a, int key) {
+		return !(indexOf(a, key,0) == INDEX_NOT_FOUND); 
+	}
+
+	public static int indexOf(int[] a, int key, int startIndex) {
+
+		if(a==null||a.length==0){
+			return INDEX_NOT_FOUND;
+		}
+		if(startIndex<0){
+			startIndex=0;
+		}
+		if(startIndex>a.length-1){
+			startIndex=(a.length-1);
+		}
+		int n = a.length;
+		for (int i = startIndex; i < n; i++) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int indexOf(int[] a, int key) {
+		return indexOf(a, key, 0);
+	}
+	
+	public static int lastIndexOf(int[] a, int key){
+		
+		if(a==null||a.length==0){
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+	
+	public static void main(String[] args) {
+
+		int [] d={4,5,6,1,3,50};
+		System.out.println(lastIndexOf(d,150));
+	}
 }
