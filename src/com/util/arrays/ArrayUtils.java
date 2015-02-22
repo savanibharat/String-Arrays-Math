@@ -1391,23 +1391,23 @@ public class ArrayUtils {
 	}
 	
 	public static boolean contains(int[] a, int key, int startIndex) {
-		return !(indexOf(a, key,startIndex) == INDEX_NOT_FOUND);
+		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
 	public static boolean contains(int[] a, int key) {
-		return !(indexOf(a, key,0) == INDEX_NOT_FOUND); 
+		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
 	public static int indexOf(int[] a, int key, int startIndex) {
 
-		if(a==null||a.length==0){
+		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
 		}
-		if(startIndex<0){
-			startIndex=0;
+		if (startIndex < 0) {
+			startIndex = 0;
 		}
-		if(startIndex>a.length-1){
-			startIndex=(a.length-1);
+		if (startIndex > a.length - 1) {
+			startIndex = (a.length - 1);
 		}
 		int n = a.length;
 		for (int i = startIndex; i < n; i++) {
@@ -1421,10 +1421,10 @@ public class ArrayUtils {
 	public static int indexOf(int[] a, int key) {
 		return indexOf(a, key, 0);
 	}
-	
-	public static int lastIndexOf(int[] a, int key){
-		
-		if(a==null||a.length==0){
+
+	public static int lastIndexOf(int[] a, int key) {
+
+		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
 		}
 		int n = a.length - 1;
@@ -1435,7 +1435,105 @@ public class ArrayUtils {
 		}
 		return INDEX_NOT_FOUND;
 	}
-	
+
+	public static int lastIndexOf(float[] a, float key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int lastIndexOf(byte[] a, byte key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int lastIndexOf(short[] a, short key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int lastIndexOf(long[] a, long key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int lastIndexOf(double[] a, double key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int lastIndexOf(boolean[] a, boolean key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int lastIndexOf(char[] a, char key) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		int n = a.length - 1;
+		for (int i = n; i >= 0; i--) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
 	public static void main(String[] args) {
 
 		int [] d={4,5,6,1,3,50};
