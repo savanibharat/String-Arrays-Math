@@ -1874,11 +1874,38 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	//int, float, char, double, byte, short, long, boolean
+	/**
+	 * StartValue and EndValue inclusive
+	 * */
+	public static int[] fill(int startValue, int endValue){
+		
+		int n=Math.abs(startValue-endValue)+1;
+		System.out.println(n);
+		int[] result=new int[n];
+		//5 > 1
+		if(startValue>endValue){
+			System.out.println("entered if");
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue--;
+			}
+		}
+		//5 < 10
+		else{
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
 	
 	public static void main(String[] args) {
 
 		char [] d={'a','w','z'};
-		System.out.println(isSorted(d));
+		int[] a=fill(5,10);
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(a[i]);
+		}
 	}
 }
