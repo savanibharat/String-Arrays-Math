@@ -2,7 +2,7 @@ package com.matrix;
 /**
  * More methods are yet to be added.
  * */
-public interface MatrixOperations {
+public interface MatrixOperations extends ScalarOperations{
 
 	/**
 	 * Copy {@code this} matrix to another matrix and return Matrix
