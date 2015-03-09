@@ -1,8 +1,6 @@
 package com.matrix;
 
-import java.util.Arrays;
-
-public class Matrix implements RealMatrix, MatrixOperations, ScalarOperations {
+public class Matrix implements RealMatrix, MatrixOperations {
 
 	private double[][] m;
 
@@ -407,7 +405,13 @@ public class Matrix implements RealMatrix, MatrixOperations, ScalarOperations {
 		System.out.println();
 		mat3.displayMatrix();*/
 		Matrix m=Matrix.matrixOfOnes(3,3);
-		
+		/**
+		 * q<-1:5 output q=1,2,3,4,5 
+		 * w<-1:5 output q=1,2,3,4,5
+		 * q+w add each elem with wach elem of other
+		 * q*2 multiply each elem with 2
+		 * 
+		 * */
 	}
 	
 	/**
