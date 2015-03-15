@@ -107,6 +107,19 @@ public class ArrayUtils {
 	}
 
 	/**
+	 * returns the length of the array
+	 * @param obj
+	 * @return 0 if null
+	 * @return obj.length
+	 */
+	public static int getArrayLenth(Object[] obj){
+		if(obj==null){
+			return 0;
+		}
+		return obj.length;
+	}
+	
+	/**
 	 * Union of 2 sets 
 	 *
 	 * @param <T>
@@ -1992,14 +2005,12 @@ public class ArrayUtils {
 		
 		int n=(int)Math.abs(startValue-endValue)+1;
 		char [] result=new char[n];
-		//5 > 1
 		if(startValue>endValue){
 			for (int i = 0; i < n; i++) {
 				result[i]=startValue;
 				startValue--;
 			}
 		}
-		//5 < 10
 		else{
 			for (int i = 0; i < n; i++) {
 				result[i]=startValue;
@@ -2011,7 +2022,6 @@ public class ArrayUtils {
 	
 	public static void main(String[] args) {
 
-		char [] d={'a','w','z'};
 		char[] a=fill('f','a');
 		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i]+" ");
