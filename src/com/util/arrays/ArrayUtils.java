@@ -1876,15 +1876,97 @@ public class ArrayUtils {
 	
 	/**
 	 * StartValue and EndValue inclusive
-	 * */
+	 * @param startValue
+	 * @param endValue
+	 * @return int[]
+	 */
 	public static int[] fill(int startValue, int endValue){
 		
 		int n=Math.abs(startValue-endValue)+1;
-		System.out.println(n);
 		int[] result=new int[n];
 		//5 > 1
 		if(startValue>endValue){
-			System.out.println("entered if");
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue--;
+			}
+		}
+		//5 < 10
+		else{
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * StartValue and EndValue inclusive
+	 * @param startValue
+	 * @param endValue
+	 * @return float[]
+	 */
+	public static float[] fill(float startValue, float endValue){
+		
+		int n=(int)Math.abs(startValue-endValue)+1;
+		float[] result=new float[n];
+		//5 > 1
+		if(startValue>endValue){
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue--;
+			}
+		}
+		//5 < 10
+		else{
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * StartValue and EndValue inclusive
+	 * @param startValue
+	 * @param endValue
+	 * @return long[]
+	 */
+	public static long[] fill(long startValue, long endValue){
+		
+		int n=(int)Math.abs(startValue-endValue)+1;
+		long[] result=new long[n];
+		//5 > 1
+		if(startValue>endValue){
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue--;
+			}
+		}
+		//5 < 10
+		else{
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * StartValue and EndValue inclusive
+	 * @param startValue
+	 * @param endValue
+	 * @return double[]
+	 */
+	public static double[] fill(double startValue, double endValue){
+		
+		int n=(int)Math.abs(startValue-endValue)+1;
+		double[] result=new double[n];
+		//5 > 1
+		if(startValue>endValue){
 			for (int i = 0; i < n; i++) {
 				result[i]=startValue;
 				startValue--;
@@ -1903,9 +1985,9 @@ public class ArrayUtils {
 	public static void main(String[] args) {
 
 		char [] d={'a','w','z'};
-		int[] a=fill(5,10);
+		double[] a=fill(5.0,10.0);
 		for (int i = 0; i < a.length; i++) {
-			System.out.println(a[i]);
+			System.out.print(a[i]+" ");
 		}
 	}
 }
