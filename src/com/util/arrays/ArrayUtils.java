@@ -131,7 +131,7 @@ public class ArrayUtils {
 	 * @return the setC
 	 * 			  the set c as Collections.unmodifiableSet(setC);
 	 */
-	public static <T> Set<T> union(Set<T> setA, Set<T> setB) {
+	public static <T> Set<T> union(final Set<T> setA, final Set<T> setB) {
 
 		/**
 		 * SetA empty & SetB has values
@@ -200,7 +200,7 @@ public class ArrayUtils {
 	 *            the set b
 	 * @return the set c as Collections.unmodifiableSet(setC);
 	 */
-	public static <T> Set<T> intersection(Set<T> setA, Set<T> setB) {
+	public static <T> Set<T> intersection(final Set<T> setA, final Set<T> setB) {
 		/**
 		 * SetA empty & SetB has values
 		 * SetA is null or 0 in length.
@@ -265,7 +265,7 @@ public class ArrayUtils {
 	 * Subset is defined as either set has same values or all values in other set.
 	 * @return true, if SetA is SubSet of SetB
 	 */
-	public static <T> boolean isSubSet(Set<T> setA, Set<T> setB) {
+	public static <T> boolean isSubSet(final Set<T> setA,final  Set<T> setB) {
 
 		/**
 		 * Said as IS SetA SUBSET OF SetB
@@ -333,7 +333,7 @@ public class ArrayUtils {
 	 * Cartesian Product [[1, 43], [1, 47], [3, 43], [3, 47]]
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> Set<T> cartesianProduct(Set<T> setA, Set<T> setB) {
+	public static <T> Set<T> cartesianProduct(final Set<T> setA, final Set<T> setB) {
 
 		/**
 		 * SetA empty & SetB has values
@@ -402,7 +402,7 @@ public class ArrayUtils {
 	 * @return the set of difference A - B
 	 */
 
-	public static <T> Set<T> diffAbyB(Set<T> setA, Set<T> setB) {
+	public static <T> Set<T> diffAbyB(final Set<T> setA,final  Set<T> setB) {
 
 		// SetA empty & SetB has values
 		if (isEmpty(setA) && !isEmpty(setB)) {
@@ -452,7 +452,7 @@ public class ArrayUtils {
 	 *            the list2
 	 * @return the list
 	 */
-	public static <T> List<T> unionList(List<T> list1, List<T> list2) {
+	public static <T> List<T> unionList(final List<T> list1,final  List<T> list2) {
 
 		if (isEmpty(list1) && isEmpty(list2)) {
 			return new ArrayList<T>();
@@ -487,7 +487,7 @@ public class ArrayUtils {
 	 *            the list2
 	 * @return the list
 	 */
-	public static <T> List<T> intersectList(List<T> list1, List<T> list2) {
+	public static <T> List<T> intersectList(final List<T> list1, final List<T> list2) {
 
 		if (isEmpty(list1) && isEmpty(list2)) {
 			return new ArrayList<T>();
@@ -528,7 +528,7 @@ public class ArrayUtils {
 	 *            the list2
 	 * @return true, if is sub set list
 	 */
-	public static <T> boolean isSubSetList(List<T> list1, List<T> list2) {
+	public static <T> boolean isSubSetList(final List<T> list1,final  List<T> list2) {
 
 		// SetA empty & SetB has values
 		if (isEmpty(list1) && !isEmpty(list2)) {
@@ -576,7 +576,7 @@ public class ArrayUtils {
 	 * @return the list
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> List<T> cartesianProductList(List<T> listA, List<T> listB) {
+	public static <T> List<T> cartesianProductList(final List<T> listA, final List<T> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -626,8 +626,8 @@ public class ArrayUtils {
 	 * @return the list
 	 */
 
-	public static List<Integer> addIntegerLists(List<Integer> listA,
-			List<Integer> listB) {
+	public static List<Integer> addIntegerLists(final List<Integer> listA,
+			final List<Integer> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -676,7 +676,7 @@ public class ArrayUtils {
 	 *            the list b
 	 * @return the list
 	 */
-	public static List<Float> addFloatLists(List<Float> listA, List<Float> listB) {
+	public static List<Float> addFloatLists(final List<Float> listA,final  List<Float> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -726,8 +726,8 @@ public class ArrayUtils {
 	 *            the list b
 	 * @return the list
 	 */
-	public static List<Double> addDoubleLists(List<Double> listA,
-			List<Double> listB) {
+	public static List<Double> addDoubleLists(final List<Double> listA,
+			final List<Double> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -777,8 +777,8 @@ public class ArrayUtils {
 	 *            the list b
 	 * @return the list
 	 */
-	public static List<Integer> subtractIntegerLists(List<Integer> listA,
-			List<Integer> listB) {
+	public static List<Integer> subtractIntegerLists(final List<Integer> listA,
+			final List<Integer> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -828,8 +828,8 @@ public class ArrayUtils {
 	 *            the list b
 	 * @return the list
 	 */
-	public static List<Float> subtractFloatLists(List<Float> listA,
-			List<Float> listB) {
+	public static List<Float> subtractFloatLists(final List<Float> listA,
+			final List<Float> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -879,8 +879,8 @@ public class ArrayUtils {
 	 *            the list b
 	 * @return the list
 	 */
-	public static List<Double> subtractDoubleLists(List<Double> listA,
-			List<Double> listB) {
+	public static List<Double> subtractDoubleLists(final List<Double> listA,
+			final List<Double> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -930,7 +930,7 @@ public class ArrayUtils {
 	 *            the arr
 	 * @return the int[]
 	 */
-	public static int[] toPrimitive(Integer[] arr) {
+	public static int[] toPrimitive(final Integer[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -957,7 +957,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the integer[]
 	 */
-	public static Integer[] toObject(int[] arr) {
+	public static Integer[] toObject(final int[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -981,7 +981,7 @@ public class ArrayUtils {
 	 *            the arr
 	 * @return the float[]
 	 */
-	public static float[] toPrimitive(Float[] arr) {
+	public static float[] toPrimitive(final Float[] arr) {
 		if (arr == null) {
 			return null;
 		}
@@ -1007,7 +1007,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the float[]
 	 */
-	public static Float[] toObject(float[] arr) {
+	public static Float[] toObject(final float[] arr) {
 		if (arr == null) {
 			return null;
 		}
@@ -1030,7 +1030,7 @@ public class ArrayUtils {
 	 *            the arr
 	 * @return the double[]
 	 */
-	public static double[] toPrimitive(Double[] arr) {
+	public static double[] toPrimitive(final Double[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -1057,7 +1057,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the double[]
 	 */
-	public static Double[] toObject(double[] arr) {
+	public static Double[] toObject(final double[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -1078,7 +1078,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the list
 	 */
-	public static List<Integer> toList(int[] arr) {
+	public static List<Integer> toList(final int[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -1100,7 +1100,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the list
 	 */
-	public static List<Float> toList(float[] arr) {
+	public static List<Float> toList(final float[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -1122,7 +1122,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the list
 	 */
-	public static List<Double> toList(double[] arr) {
+	public static List<Double> toList(final double[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -1144,7 +1144,7 @@ public class ArrayUtils {
 	 * @param arr the arr
 	 * @return the list
 	 */
-	public static List<Long> toList(long[] arr) {
+	public static List<Long> toList(final long[] arr) {
 
 		if (arr == null) {
 			return null;
@@ -1164,7 +1164,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of int[]
 	 * start and end values are handled gracefully
 	 * */
-	public static int[] subArray(int[] a,int start,int end){
+	public static int[] subArray(final int[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1191,7 +1191,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of float[]
 	 * start and end values are handled gracefully
 	 * */
-	public static float[] subArray(float[] a,int start,int end){
+	public static float[] subArray(final float[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1218,7 +1218,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of byte[]
 	 * start and end values are handled gracefully
 	 * */
-	public static byte[] subArray(byte[] a,int start,int end){
+	public static byte[] subArray(final byte[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1245,7 +1245,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of short[]
 	 * start and end values are handled gracefully
 	 * */
-	public static short[] subArray(short[] a,int start,int end){
+	public static short[] subArray(final short[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1272,7 +1272,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of long[]
 	 * start and end values are handled gracefully
 	 * */
-	public static long[] subArray(long[] a,int start,int end){
+	public static long[] subArray(final long[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1299,7 +1299,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of double[]
 	 * start and end values are handled gracefully
 	 * */
-	public static double[] subArray(double[] a,int start,int end){
+	public static double[] subArray(final double[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1326,7 +1326,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of boolean[]
 	 * start and end values are handled gracefully
 	 * */
-	public static boolean[] subArray(boolean[] a,int start,int end){
+	public static boolean[] subArray(final boolean[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1353,7 +1353,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of char[]
 	 * start and end values are handled gracefully
 	 * */
-	public static char[] subArray(char[] a,int start,int end){
+	public static char[] subArray(final char[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1380,7 +1380,7 @@ public class ArrayUtils {
 	 * This method returns the sub array of Object[]
 	 * start and end values are handled gracefully
 	 * */
-	public static Object[] subArray(Object[] a,int start,int end){
+	public static Object[] subArray(final Object[] a,int start,int end){
 		
 		if(a==null){
 			return null;
@@ -1403,15 +1403,15 @@ public class ArrayUtils {
 		return result;
 	}
 	
-	public static boolean contains(int[] a, int key, int startIndex) {
+	public static boolean contains(final int[] a, int key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(int[] a, int key) {
+	public static boolean contains(final int[] a, int key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
-	public static int indexOf(int[] a, int key, int startIndex) {
+	public static int indexOf(final int[] a, int key, int startIndex) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1431,19 +1431,19 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(int[] a, int key) {
+	public static int indexOf(final int[] a, int key) {
 		return indexOf(a, key, 0);
 	}
 
-	public static boolean contains(float[] a, float key, int startIndex) {
+	public static boolean contains(final float[] a, float key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(float[] a, float key) {
+	public static boolean contains(final float[] a, float key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
-	public static int indexOf(float[] a, float key, int startIndex) {
+	public static int indexOf(final float[] a, float key, int startIndex) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1463,51 +1463,19 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(float[] a, float key) {
-		return indexOf(a, key, 0);
-	}
-	
-	public static boolean contains(char[] a, char key, int startIndex) {
-		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
-	}
-
-	public static boolean contains(char[] a, char key) {
-		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
-	}
-
-	public static int indexOf(char[] a, char key, int startIndex) {
-
-		if (a == null || a.length == 0) {
-			return INDEX_NOT_FOUND;
-		}
-		if (startIndex < 0) {
-			startIndex = 0;
-		}
-		if (startIndex > a.length - 1) {
-			startIndex = (a.length - 1);
-		}
-		int n = a.length;
-		for (int i = startIndex; i < n; i++) {
-			if (a[i] == key) {
-				return i;
-			}
-		}
-		return INDEX_NOT_FOUND;
-	}
-
-	public static int indexOf(char[] a, char key) {
+	public static int indexOf(final float[] a, float key) {
 		return indexOf(a, key, 0);
 	}
 	
-	public static boolean contains(double[] a, double key, int startIndex) {
+	public static boolean contains(final char[] a, char key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(double[] a, double key) {
+	public static boolean contains(final char[] a, char key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
-	public static int indexOf(double[] a, double key, int startIndex) {
+	public static int indexOf(final char[] a, char key, int startIndex) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1527,15 +1495,47 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(double[] a, double key) {
+	public static int indexOf(final char[] a, char key) {
 		return indexOf(a, key, 0);
 	}
 	
-	public static boolean contains(byte[] a, byte key, int startIndex) {
+	public static boolean contains(final double[] a, double key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(byte[] a, byte key) {
+	public static boolean contains(final double[] a, double key) {
+		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
+	}
+
+	public static int indexOf(final double[] a, double key, int startIndex) {
+
+		if (a == null || a.length == 0) {
+			return INDEX_NOT_FOUND;
+		}
+		if (startIndex < 0) {
+			startIndex = 0;
+		}
+		if (startIndex > a.length - 1) {
+			startIndex = (a.length - 1);
+		}
+		int n = a.length;
+		for (int i = startIndex; i < n; i++) {
+			if (a[i] == key) {
+				return i;
+			}
+		}
+		return INDEX_NOT_FOUND;
+	}
+
+	public static int indexOf(final double[] a, double key) {
+		return indexOf(a, key, 0);
+	}
+	
+	public static boolean contains(final byte[] a, byte key, int startIndex) {
+		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
+	}
+
+	public static boolean contains(final byte[] a, byte key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
@@ -1559,19 +1559,19 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(byte[] a, byte key) {
+	public static int indexOf(final byte[] a, byte key) {
 		return indexOf(a, key, 0);
 	}
 	
-	public static boolean contains(short[] a, short key, int startIndex) {
+	public static boolean contains(final short[] a, short key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(short[] a, short key) {
+	public static boolean contains(final short[] a, short key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
-	public static int indexOf(short[] a, short key, int startIndex) {
+	public static int indexOf(final short[] a, short key, int startIndex) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1591,19 +1591,19 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(short[] a, short key) {
+	public static int indexOf(final short[] a, short key) {
 		return indexOf(a, key, 0);
 	}
 	
-	public static boolean contains(long[] a, long key, int startIndex) {
+	public static boolean contains(final long[] a, long key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(long[] a, long key) {
+	public static boolean contains(final long[] a, long key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
-	public static int indexOf(long[] a, long key, int startIndex) {
+	public static int indexOf(final long[] a, long key, int startIndex) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1623,19 +1623,19 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(long[] a, long key) {
+	public static int indexOf(final long[] a, long key) {
 		return indexOf(a, key, 0);
 	}
 	
-	public static boolean contains(boolean[] a, boolean key, int startIndex) {
+	public static boolean contains(final boolean[] a, boolean key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
-	public static boolean contains(boolean[] a, boolean key) {
+	public static boolean contains(final boolean[] a, boolean key) {
 		return !(indexOf(a, key, 0) == INDEX_NOT_FOUND);
 	}
 
-	public static int indexOf(boolean[] a, boolean key, int startIndex) {
+	public static int indexOf(final boolean[] a, boolean key, int startIndex) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1655,13 +1655,13 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int indexOf(boolean[] a, boolean key) {
+	public static int indexOf(final boolean[] a, boolean key) {
 		return indexOf(a, key, 0);
 	}
 	
 	
 	
-	public static int lastIndexOf(int[] a, int key) {
+	public static int lastIndexOf(final int[] a, int key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1675,7 +1675,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(float[] a, float key) {
+	public static int lastIndexOf(final float[] a, float key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1689,7 +1689,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(byte[] a, byte key) {
+	public static int lastIndexOf(final byte[] a, byte key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1703,7 +1703,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(short[] a, short key) {
+	public static int lastIndexOf(final short[] a, short key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1717,7 +1717,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(long[] a, long key) {
+	public static int lastIndexOf(final long[] a, long key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1731,7 +1731,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(double[] a, double key) {
+	public static int lastIndexOf(final double[] a, double key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1745,7 +1745,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(boolean[] a, boolean key) {
+	public static int lastIndexOf(final boolean[] a, boolean key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1759,7 +1759,7 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	public static int lastIndexOf(char[] a, char key) {
+	public static int lastIndexOf(final char[] a, char key) {
 
 		if (a == null || a.length == 0) {
 			return INDEX_NOT_FOUND;
@@ -1775,7 +1775,7 @@ public class ArrayUtils {
 
 	//int, float, char, double, byte, short, long, boolean
 	
-	public static boolean isSorted(int[] a){
+	public static boolean isSorted(final int[] a){
 		
 		if(a==null){
 			return false;
@@ -1791,7 +1791,7 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	public static boolean isSorted(float[] a){
+	public static boolean isSorted(final float[] a){
 		
 		if(a==null){
 			return false;
@@ -1807,7 +1807,7 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	public static boolean isSorted(char[] a){
+	public static boolean isSorted(final char[] a){
 		
 		if(a==null){
 			return false;
@@ -1823,7 +1823,7 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	public static boolean isSorted(double[] a){
+	public static boolean isSorted(final double[] a){
 		
 		if(a==null){
 			return false;
@@ -1839,7 +1839,7 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	public static boolean isSorted(byte[] a){
+	public static boolean isSorted(final byte[] a){
 		
 		if(a==null){
 			return false;
@@ -1855,7 +1855,7 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	public static boolean isSorted(short[] a){
+	public static boolean isSorted(final short[] a){
 		
 		if(a==null){
 			return false;
@@ -1871,7 +1871,7 @@ public class ArrayUtils {
 		return true;
 	}
 	
-	public static boolean isSorted(long[] a){
+	public static boolean isSorted(final long[] a){
 		
 		if(a==null){
 			return false;
