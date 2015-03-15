@@ -1982,10 +1982,37 @@ public class ArrayUtils {
 		return result;
 	}
 	
+	/**
+	 * StartValue and EndValue inclusive
+	 * @param startValue
+	 * @param endValue
+	 * @return double[]
+	 */
+	public static char[] fill(char startValue, char endValue){
+		
+		int n=(int)Math.abs(startValue-endValue)+1;
+		char [] result=new char[n];
+		//5 > 1
+		if(startValue>endValue){
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue--;
+			}
+		}
+		//5 < 10
+		else{
+			for (int i = 0; i < n; i++) {
+				result[i]=startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
 
 		char [] d={'a','w','z'};
-		double[] a=fill(5.0,10.0);
+		char[] a=fill('f','a');
 		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i]+" ");
 		}
