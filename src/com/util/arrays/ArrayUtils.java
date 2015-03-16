@@ -1,7 +1,6 @@
 package com.util.arrays;
 
 import java.util.ArrayList;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -9,16 +8,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-
-
 public class ArrayUtils {
 
 	/**
-	 * The Primitives and the Wrapper classes are used to initialize the array of length 0.
-	 * This arrays are used as return value if the parameter passed array is null or length is 0.
-	 * This utilities are used as a means of not to duplicate the code for null or length of 0.
+	 * The Primitives and the Wrapper classes are used to initialize the array
+	 * of length 0. This arrays are used as return value if the parameter passed
+	 * array is null or length is 0. This utilities are used as a means of not
+	 * to duplicate the code for null or length of 0.
 	 **/
-	
+
 	/** The Constant BYTE_ARRAY. */
 	public static final byte[] BYTE_ARRAY = new byte[0];
 
@@ -71,10 +69,9 @@ public class ArrayUtils {
 	public static final Object[] OBJECT_ARRAY = new Object[0];
 
 	/**
-	 * List<ANY> is null 
-	 * ANY - Integer, Float, Long, Double
+	 * List<ANY> is null ANY - Integer, Float, Long, Double
 	 * 
-	 * Used for conversion of Primitive array to List<ANY> 
+	 * Used for conversion of Primitive array to List<ANY>
 	 * */
 	/** The Constant INTEGER_LIST. */
 	public static final List<Integer> INTEGER_LIST = new ArrayList<Integer>();
@@ -87,8 +84,8 @@ public class ArrayUtils {
 
 	/** The Constant DOUBLE_LIST. */
 	public static final List<Double> DOUBLE_LIST = new ArrayList<Double>();
-	
-	public static final int INDEX_NOT_FOUND =-1;
+
+	public static final int INDEX_NOT_FOUND = -1;
 
 	/**
 	 * Checks if Collection is empty.
@@ -108,19 +105,20 @@ public class ArrayUtils {
 
 	/**
 	 * returns the length of the array
+	 * 
 	 * @param obj
 	 * @return 0 if null
 	 * @return obj.length
 	 */
-	public static int getArrayLenth(Object[] obj){
-		if(obj==null){
+	public static int getArrayLenth(Object[] obj) {
+		if (obj == null) {
 			return 0;
 		}
 		return obj.length;
 	}
-	
+
 	/**
-	 * Union of 2 sets 
+	 * Union of 2 sets
 	 *
 	 * @param <T>
 	 *            the generic type
@@ -128,34 +126,29 @@ public class ArrayUtils {
 	 *            the set a
 	 * @param setB
 	 *            the set b
-	 * @return the setC
-	 * 			  the set c as Collections.unmodifiableSet(setC);
+	 * @return the setC the set c as Collections.unmodifiableSet(setC);
 	 */
 	public static <T> Set<T> union(final Set<T> setA, final Set<T> setB) {
 
 		/**
-		 * SetA empty & SetB has values
-		 * SetA is null or 0 in length.
-		 * SetB contains values.
-		 * Return SetB as UnModifiableSet
+		 * SetA empty & SetB has values SetA is null or 0 in length. SetB
+		 * contains values. Return SetB as UnModifiableSet
 		 * */
 		if (isEmpty(setA) && !isEmpty(setB)) {
 			return Collections.unmodifiableSet(setB);
 		}
 
 		/**
-		 * SetA has values & SetB empty
-		 * SetB is null or 0 in length.
-		 * SetA contains values.
-		 * Return SetA as UnModifiableSet
+		 * SetA has values & SetB empty SetB is null or 0 in length. SetA
+		 * contains values. Return SetA as UnModifiableSet
 		 * */
 		if (!isEmpty(setA) && isEmpty(setB)) {
 			return Collections.unmodifiableSet(setA);
 		}
 
 		/**
-		 * If both the Sets are empty then return new Set
-		 * need to return as Collections.unmodifiableSet(new LinkedHashSet<T>());
+		 * If both the Sets are empty then return new Set need to return as
+		 * Collections.unmodifiableSet(new LinkedHashSet<T>());
 		 * */
 		if (isEmpty(setA) && isEmpty(setB)) {
 			return Collections.unmodifiableSet(new LinkedHashSet<T>());
@@ -169,8 +162,7 @@ public class ArrayUtils {
 		}
 
 		/**
-		 * Initialize a new SetC
-		 * Take iterator for SetA and SetB
+		 * Initialize a new SetC Take iterator for SetA and SetB
 		 * */
 		Set<T> setC = new LinkedHashSet<T>();
 		Iterator<T> iterA = setA.iterator();
@@ -179,7 +171,7 @@ public class ArrayUtils {
 		/**
 		 * Add all values of SetA and SetB in SetC
 		 * */
-		
+
 		while (iterA.hasNext()) {
 			setC.add(iterA.next());
 		}
@@ -202,20 +194,17 @@ public class ArrayUtils {
 	 */
 	public static <T> Set<T> intersection(final Set<T> setA, final Set<T> setB) {
 		/**
-		 * SetA empty & SetB has values
-		 * SetA is null or 0 in length.
-		 * SetB contains values.
-		 * Return UnModifiableSet as SetA intersection with SetB results in no values.
+		 * SetA empty & SetB has values SetA is null or 0 in length. SetB
+		 * contains values. Return UnModifiableSet as SetA intersection with
+		 * SetB results in no values.
 		 * */
 		if (isEmpty(setA) && !isEmpty(setB)) {
 			return Collections.unmodifiableSet(new LinkedHashSet<T>());
 		}
 
 		/**
-		 * SetA has values & SetB empty
-		 * SetB is null or 0 in length.
-		 * SetA contains values.
-		 * Return SetA as UnModifiableSet
+		 * SetA has values & SetB empty SetB is null or 0 in length. SetA
+		 * contains values. Return SetA as UnModifiableSet
 		 * */
 		if (!isEmpty(setA) && isEmpty(setB)) {
 			return Collections.unmodifiableSet(new LinkedHashSet<T>());
@@ -227,11 +216,10 @@ public class ArrayUtils {
 		if (isEmpty(setA) && isEmpty(setB)) {
 			return Collections.unmodifiableSet(new LinkedHashSet<T>());
 		}
-		
+
 		/**
-		 * SetA and SetB contains same values.
-		 * Retuns SetA.
-		 * Its does not matter which set to return as both of them are same.
+		 * SetA and SetB contains same values. Retuns SetA. Its does not matter
+		 * which set to return as both of them are same.
 		 * */
 		if (setA.equals(setB)) {
 			return setA;
@@ -241,8 +229,8 @@ public class ArrayUtils {
 		Iterator<T> iterA = setA.iterator();
 
 		/**
-		 * Equality check for the common values in both the sets.
-		 * Common values are inserted into SetC
+		 * Equality check for the common values in both the sets. Common values
+		 * are inserted into SetC
 		 * */
 		while (iterA.hasNext()) {
 			T obj = iterA.next();
@@ -261,26 +249,23 @@ public class ArrayUtils {
 	 * @param setA
 	 *            the set a
 	 * @param setB
-	 *            the set b
-	 * Subset is defined as either set has same values or all values in other set.
+	 *            the set b Subset is defined as either set has same values or
+	 *            all values in other set.
 	 * @return true, if SetA is SubSet of SetB
 	 */
-	public static <T> boolean isSubSet(final Set<T> setA,final  Set<T> setB) {
+	public static <T> boolean isSubSet(final Set<T> setA, final Set<T> setB) {
 
 		/**
-		 * Said as IS SetA SUBSET OF SetB
-		 * SetA empty & SetB has values
-		 * SetA is null or 0 in length
-		 * SetB contains values
-		 * Returns false as SetA is empty and SetB has values
+		 * Said as IS SetA SUBSET OF SetB SetA empty & SetB has values SetA is
+		 * null or 0 in length SetB contains values Returns false as SetA is
+		 * empty and SetB has values
 		 * */
 		if (isEmpty(setA) && !isEmpty(setB)) {
 			return true;
 		}
 
 		/**
-		 * SetB is empty 
-		 * Hence, SetB is Subset of SetA
+		 * SetB is empty Hence, SetB is Subset of SetA
 		 * */
 		if (!isEmpty(setA) && isEmpty(setB)) {
 			return false;
@@ -301,8 +286,9 @@ public class ArrayUtils {
 		}
 
 		/**
-		 * If setA is subset of setB then setA size will be same or less than setB
-		 * */ 
+		 * If setA is subset of setB then setA size will be same or less than
+		 * setB
+		 * */
 		if (setA.size() <= setB.size()) {
 
 			Iterator<T> iterA = setA.iterator();
@@ -327,25 +313,22 @@ public class ArrayUtils {
 	 *            the set b
 	 * @return the Lists in Set
 	 * 
-	 * Output
-	 * SetA [1, 3]
-	 * SetB [43, 47]
-	 * Cartesian Product [[1, 43], [1, 47], [3, 43], [3, 47]]
+	 *         Output SetA [1, 3] SetB [43, 47] Cartesian Product [[1, 43], [1,
+	 *         47], [3, 43], [3, 47]]
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> Set<T> cartesianProduct(final Set<T> setA, final Set<T> setB) {
+	public static <T> Set<T> cartesianProduct(final Set<T> setA,
+			final Set<T> setB) {
 
 		/**
-		 * SetA empty & SetB has values
-		 * Return SetB as UnModifiableSet
+		 * SetA empty & SetB has values Return SetB as UnModifiableSet
 		 * */
 		if (isEmpty(setA) && !isEmpty(setB)) {
 			return Collections.unmodifiableSet(setB);
 		}
 
 		/**
-		 * SetA has values & SetB is empty
-		 * Return SetA as UnModifiableSet
+		 * SetA has values & SetB is empty Return SetA as UnModifiableSet
 		 * */
 		if (!isEmpty(setA) && isEmpty(setB)) {
 			return Collections.unmodifiableSet(setA);
@@ -365,9 +348,10 @@ public class ArrayUtils {
 		ArrayList<T> subList = new ArrayList<T>();
 
 		/**
-		 * To built the cartesian product we need to add the values from both the sets and built the list for it
+		 * To built the cartesian product we need to add the values from both
+		 * the sets and built the list for it
 		 * */
-		
+
 		for (int i = 0; i < A.length; i++) {
 			for (int j = 0; j < B.length; j++) {
 
@@ -387,11 +371,11 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * A = {1, 2, 3, 4, 5} and B = {3, 4, 5, 6, 7, 8}. 
-	 * To find the difference A - B of these two sets, we begin by writing all 
-	 * of the elements of A, and then take away every element of A that is also an 
-	 * element of B. Since A shares the elements 3, 4 and 5 with B, this gives us the 
-	 * set difference A - B = {1, 2}.
+	 * A = {1, 2, 3, 4, 5} and B = {3, 4, 5, 6, 7, 8}. To find the difference A
+	 * - B of these two sets, we begin by writing all of the elements of A, and
+	 * then take away every element of A that is also an element of B. Since A
+	 * shares the elements 3, 4 and 5 with B, this gives us the set difference A
+	 * - B = {1, 2}.
 	 *
 	 * @param <T>
 	 *            the generic type
@@ -402,7 +386,7 @@ public class ArrayUtils {
 	 * @return the set of difference A - B
 	 */
 
-	public static <T> Set<T> diffAbyB(final Set<T> setA,final  Set<T> setB) {
+	public static <T> Set<T> diffAbyB(final Set<T> setA, final Set<T> setB) {
 
 		// SetA empty & SetB has values
 		if (isEmpty(setA) && !isEmpty(setB)) {
@@ -424,13 +408,14 @@ public class ArrayUtils {
 		Iterator<T> iterB = setB.iterator();
 
 		/**
-		 * Add all elements of SetA in resulting setC*/
+		 * Add all elements of SetA in resulting setC
+		 */
 		while (iterA.hasNext()) {
 			setC.add(iterA.next());
 		}
 		/**
-		 * Now compare for the SetB elements in SetC
-		 * If exists then remove that element.
+		 * Now compare for the SetB elements in SetC If exists then remove that
+		 * element.
 		 * */
 		while (iterB.hasNext()) {
 			T o = iterB.next();
@@ -452,7 +437,7 @@ public class ArrayUtils {
 	 *            the list2
 	 * @return the list
 	 */
-	public static <T> List<T> unionList(final List<T> list1,final  List<T> list2) {
+	public static <T> List<T> unionList(final List<T> list1, final List<T> list2) {
 
 		if (isEmpty(list1) && isEmpty(list2)) {
 			return new ArrayList<T>();
@@ -487,7 +472,8 @@ public class ArrayUtils {
 	 *            the list2
 	 * @return the list
 	 */
-	public static <T> List<T> intersectList(final List<T> list1, final List<T> list2) {
+	public static <T> List<T> intersectList(final List<T> list1,
+			final List<T> list2) {
 
 		if (isEmpty(list1) && isEmpty(list2)) {
 			return new ArrayList<T>();
@@ -528,7 +514,8 @@ public class ArrayUtils {
 	 *            the list2
 	 * @return true, if is sub set list
 	 */
-	public static <T> boolean isSubSetList(final List<T> list1,final  List<T> list2) {
+	public static <T> boolean isSubSetList(final List<T> list1,
+			final List<T> list2) {
 
 		// SetA empty & SetB has values
 		if (isEmpty(list1) && !isEmpty(list2)) {
@@ -576,7 +563,8 @@ public class ArrayUtils {
 	 * @return the list
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> List<T> cartesianProductList(final List<T> listA, final List<T> listB) {
+	public static <T> List<T> cartesianProductList(final List<T> listA,
+			final List<T> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -676,7 +664,8 @@ public class ArrayUtils {
 	 *            the list b
 	 * @return the list
 	 */
-	public static List<Float> addFloatLists(final List<Float> listA,final  List<Float> listB) {
+	public static List<Float> addFloatLists(final List<Float> listA,
+			final List<Float> listB) {
 
 		// ListA empty & ListB has values
 		if (isEmpty(listA) && !isEmpty(listB)) {
@@ -922,9 +911,8 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * This method is used to convert the Integer(wrapper class objects) to 
-	 * primitive type. 
-	 * We use method intValue() which returns int.
+	 * This method is used to convert the Integer(wrapper class objects) to
+	 * primitive type. We use method intValue() which returns int.
 	 *
 	 * @param arr
 	 *            the arr
@@ -946,15 +934,16 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * This method is used to convert the int(primitive) to Wrapper type. 
-	 * We dont use any method for this as compiler uses {@code Integer.valueOf(i);}
-	 * Converting a primitive value (an int, for example) into an object of the corresponding 
-	 * wrapper class (Integer) is called autoboxing. The Java compiler applies autoboxing when
-	 * a primitive value is:
-	 * 		Passed as a parameter to a method that expects an object of the corresponding wrapper class.
-     * 		Assigned to a variable of the corresponding wrapper class.
-
-	 * @param arr the arr
+	 * This method is used to convert the int(primitive) to Wrapper type. We
+	 * dont use any method for this as compiler uses {@code Integer.valueOf(i);}
+	 * Converting a primitive value (an int, for example) into an object of the
+	 * corresponding wrapper class (Integer) is called autoboxing. The Java
+	 * compiler applies autoboxing when a primitive value is: Passed as a
+	 * parameter to a method that expects an object of the corresponding wrapper
+	 * class. Assigned to a variable of the corresponding wrapper class.
+	 * 
+	 * @param arr
+	 *            the arr
 	 * @return the integer[]
 	 */
 	public static Integer[] toObject(final int[] arr) {
@@ -973,9 +962,8 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * This method is used to convert the Float(wrapper class objects) to 
-	 * primitive type. 
-	 * We use method floatValue() which returns float.
+	 * This method is used to convert the Float(wrapper class objects) to
+	 * primitive type. We use method floatValue() which returns float.
 	 *
 	 * @param arr
 	 *            the arr
@@ -996,15 +984,17 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * This method is used to convert the float(primitive) to its Wrapper type Float. 
-	 * We don't use any method for this as compiler uses {@code Float.valueOf(i);}
-	 * Converting a primitive value (an float, for example) into an object of the corresponding 
-	 * wrapper class (Float) is called autoboxing. The Java compiler applies autoboxing when
-	 * a primitive value is:
-	 * 		Passed as a parameter to a method that expects an object of the corresponding wrapper class.
-     * 		Assigned to a variable of the corresponding wrapper class.
+	 * This method is used to convert the float(primitive) to its Wrapper type
+	 * Float. We don't use any method for this as compiler uses
+	 * {@code Float.valueOf(i);} Converting a primitive value (an float, for
+	 * example) into an object of the corresponding wrapper class (Float) is
+	 * called autoboxing. The Java compiler applies autoboxing when a primitive
+	 * value is: Passed as a parameter to a method that expects an object of the
+	 * corresponding wrapper class. Assigned to a variable of the corresponding
+	 * wrapper class.
 	 *
-	 * @param arr the arr
+	 * @param arr
+	 *            the arr
 	 * @return the float[]
 	 */
 	public static Float[] toObject(final float[] arr) {
@@ -1022,9 +1012,8 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * This method is used to convert the Double(wrapper class objects) to 
-	 * primitive type. 
-	 * We use method doubleValue() which returns double.
+	 * This method is used to convert the Double(wrapper class objects) to
+	 * primitive type. We use method doubleValue() which returns double.
 	 *
 	 * @param arr
 	 *            the arr
@@ -1046,15 +1035,17 @@ public class ArrayUtils {
 	}
 
 	/**
-	 * This method is used to convert the double(primitive) to its Wrapper type Double. 
-	 * We don't use any method for this as compiler uses {@code Double.valueOf(i);}
-	 * Converting a primitive value (an double, for example) into an object of the corresponding 
-	 * wrapper class (Double) is called autoboxing. The Java compiler applies autoboxing when
-	 * a primitive value is:
-	 * 		Passed as a parameter to a method that expects an object of the corresponding wrapper class.
-     * 		Assigned to a variable of the corresponding wrapper class.
+	 * This method is used to convert the double(primitive) to its Wrapper type
+	 * Double. We don't use any method for this as compiler uses
+	 * {@code Double.valueOf(i);} Converting a primitive value (an double, for
+	 * example) into an object of the corresponding wrapper class (Double) is
+	 * called autoboxing. The Java compiler applies autoboxing when a primitive
+	 * value is: Passed as a parameter to a method that expects an object of the
+	 * corresponding wrapper class. Assigned to a variable of the corresponding
+	 * wrapper class.
 	 *
-	 * @param arr the arr
+	 * @param arr
+	 *            the arr
 	 * @return the double[]
 	 */
 	public static Double[] toObject(final double[] arr) {
@@ -1071,11 +1062,12 @@ public class ArrayUtils {
 		}
 		return result;
 	}
-	
+
 	/**
 	 * To list.
 	 *
-	 * @param arr the arr
+	 * @param arr
+	 *            the arr
 	 * @return the list
 	 */
 	public static List<Integer> toList(final int[] arr) {
@@ -1097,7 +1089,8 @@ public class ArrayUtils {
 	/**
 	 * To list.
 	 *
-	 * @param arr the arr
+	 * @param arr
+	 *            the arr
 	 * @return the list
 	 */
 	public static List<Float> toList(final float[] arr) {
@@ -1119,7 +1112,8 @@ public class ArrayUtils {
 	/**
 	 * To list.
 	 *
-	 * @param arr the arr
+	 * @param arr
+	 *            the arr
 	 * @return the list
 	 */
 	public static List<Double> toList(final double[] arr) {
@@ -1141,7 +1135,8 @@ public class ArrayUtils {
 	/**
 	 * To list.
 	 *
-	 * @param arr the arr
+	 * @param arr
+	 *            the arr
 	 * @return the list
 	 */
 	public static List<Long> toList(final long[] arr) {
@@ -1159,250 +1154,250 @@ public class ArrayUtils {
 		}
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of int[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of int[] start and end values are
+	 * handled gracefully
 	 * */
-	public static int[] subArray(final int[] a,int start,int end){
-		
-		if(a==null){
+	public static int[] subArray(final int[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return INT_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return INT_ARRAY;
 		}
-		int[] result=new int[resultSize];
+		int[] result = new int[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of float[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of float[] start and end values are
+	 * handled gracefully
 	 * */
-	public static float[] subArray(final float[] a,int start,int end){
-		
-		if(a==null){
+	public static float[] subArray(final float[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return FLOAT_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return FLOAT_ARRAY;
 		}
-		float[] result=new float[resultSize];
+		float[] result = new float[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of byte[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of byte[] start and end values are
+	 * handled gracefully
 	 * */
-	public static byte[] subArray(final byte[] a,int start,int end){
-		
-		if(a==null){
+	public static byte[] subArray(final byte[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return BYTE_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return BYTE_ARRAY;
 		}
-		byte[] result=new byte[resultSize];
+		byte[] result = new byte[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of short[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of short[] start and end values are
+	 * handled gracefully
 	 * */
-	public static short[] subArray(final short[] a,int start,int end){
-		
-		if(a==null){
+	public static short[] subArray(final short[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return SHORT_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return SHORT_ARRAY;
 		}
-		short[] result=new short[resultSize];
+		short[] result = new short[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of long[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of long[] start and end values are
+	 * handled gracefully
 	 * */
-	public static long[] subArray(final long[] a,int start,int end){
-		
-		if(a==null){
+	public static long[] subArray(final long[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return LONG_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return LONG_ARRAY;
 		}
-		long[] result=new long[resultSize];
+		long[] result = new long[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of double[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of double[] start and end values are
+	 * handled gracefully
 	 * */
-	public static double[] subArray(final double[] a,int start,int end){
-		
-		if(a==null){
+	public static double[] subArray(final double[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return DOUBLE_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return DOUBLE_ARRAY;
 		}
-		double[] result=new double[resultSize];
+		double[] result = new double[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of boolean[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of boolean[] start and end values are
+	 * handled gracefully
 	 * */
-	public static boolean[] subArray(final boolean[] a,int start,int end){
-		
-		if(a==null){
+	public static boolean[] subArray(final boolean[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return BOOLEAN_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return BOOLEAN_ARRAY;
 		}
-		boolean[] result=new boolean[resultSize];
+		boolean[] result = new boolean[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
 	/**
-	 * This method returns the sub array of char[]
-	 * start and end values are handled gracefully
+	 * This method returns the sub array of char[] start and end values are
+	 * handled gracefully
 	 * */
-	public static char[] subArray(final char[] a,int start,int end){
-		
-		if(a==null){
+	public static char[] subArray(final char[] a, int start, int end) {
+
+		if (a == null) {
 			return null;
 		}
-		if(a.length==0){
+		if (a.length == 0) {
 			return CHAR_ARRAY;
 		}
-		if(start<0){
-			start=0;
+		if (start < 0) {
+			start = 0;
 		}
-		if(end>=a.length){
-			end=a.length-1;
+		if (end >= a.length) {
+			end = a.length - 1;
 		}
-		int resultSize=end-start;
-		if(resultSize<=0){
+		int resultSize = end - start;
+		if (resultSize <= 0) {
 			return CHAR_ARRAY;
 		}
-		char[] result=new char[resultSize];
-		System.arraycopy(a, start, result, 0, resultSize);
-		return result;
-	}	
-	
-	/**
-	 * This method returns the sub array of Object[]
-	 * start and end values are handled gracefully
-	 * */
-	public static Object[] subArray(final Object[] a,int start,int end){
-		
-		if(a==null){
-			return null;
-		}
-		if(a.length==0){
-			return OBJECT_ARRAY;
-		}
-		if(start<0){
-			start=0;
-		}
-		if(end>=a.length){
-			end=a.length-1;
-		}
-		int resultSize=end-start;
-		if(resultSize<=0){
-			return OBJECT_ARRAY;
-		}
-		Object[] result=new Object[resultSize];
+		char[] result = new char[resultSize];
 		System.arraycopy(a, start, result, 0, resultSize);
 		return result;
 	}
-	
+
+	/**
+	 * This method returns the sub array of Object[] start and end values are
+	 * handled gracefully
+	 * */
+	public static Object[] subArray(final Object[] a, int start, int end) {
+
+		if (a == null) {
+			return null;
+		}
+		if (a.length == 0) {
+			return OBJECT_ARRAY;
+		}
+		if (start < 0) {
+			start = 0;
+		}
+		if (end >= a.length) {
+			end = a.length - 1;
+		}
+		int resultSize = end - start;
+		if (resultSize <= 0) {
+			return OBJECT_ARRAY;
+		}
+		Object[] result = new Object[resultSize];
+		System.arraycopy(a, start, result, 0, resultSize);
+		return result;
+	}
+
 	public static boolean contains(final int[] a, int key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
@@ -1466,7 +1461,7 @@ public class ArrayUtils {
 	public static int indexOf(final float[] a, float key) {
 		return indexOf(a, key, 0);
 	}
-	
+
 	public static boolean contains(final char[] a, char key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
@@ -1498,7 +1493,7 @@ public class ArrayUtils {
 	public static int indexOf(final char[] a, char key) {
 		return indexOf(a, key, 0);
 	}
-	
+
 	public static boolean contains(final double[] a, double key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
@@ -1530,7 +1525,7 @@ public class ArrayUtils {
 	public static int indexOf(final double[] a, double key) {
 		return indexOf(a, key, 0);
 	}
-	
+
 	public static boolean contains(final byte[] a, byte key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
@@ -1562,7 +1557,7 @@ public class ArrayUtils {
 	public static int indexOf(final byte[] a, byte key) {
 		return indexOf(a, key, 0);
 	}
-	
+
 	public static boolean contains(final short[] a, short key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
@@ -1594,7 +1589,7 @@ public class ArrayUtils {
 	public static int indexOf(final short[] a, short key) {
 		return indexOf(a, key, 0);
 	}
-	
+
 	public static boolean contains(final long[] a, long key, int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
@@ -1626,8 +1621,9 @@ public class ArrayUtils {
 	public static int indexOf(final long[] a, long key) {
 		return indexOf(a, key, 0);
 	}
-	
-	public static boolean contains(final boolean[] a, boolean key, int startIndex) {
+
+	public static boolean contains(final boolean[] a, boolean key,
+			int startIndex) {
 		return !(indexOf(a, key, startIndex) == INDEX_NOT_FOUND);
 	}
 
@@ -1658,9 +1654,7 @@ public class ArrayUtils {
 	public static int indexOf(final boolean[] a, boolean key) {
 		return indexOf(a, key, 0);
 	}
-	
-	
-	
+
 	public static int lastIndexOf(final int[] a, int key) {
 
 		if (a == null || a.length == 0) {
@@ -1773,258 +1767,255 @@ public class ArrayUtils {
 		return INDEX_NOT_FOUND;
 	}
 
-	//int, float, char, double, byte, short, long, boolean
-	
-	public static boolean isSorted(final int[] a){
-		
-		if(a==null){
+	// int, float, char, double, byte, short, long, boolean
+
+	public static boolean isSorted(final int[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
-	public static boolean isSorted(final float[] a){
-		
-		if(a==null){
+
+	public static boolean isSorted(final float[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
-	public static boolean isSorted(final char[] a){
-		
-		if(a==null){
+
+	public static boolean isSorted(final char[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
-	public static boolean isSorted(final double[] a){
-		
-		if(a==null){
+
+	public static boolean isSorted(final double[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
-	public static boolean isSorted(final byte[] a){
-		
-		if(a==null){
+
+	public static boolean isSorted(final byte[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
-	public static boolean isSorted(final short[] a){
-		
-		if(a==null){
+
+	public static boolean isSorted(final short[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
-	public static boolean isSorted(final long[] a){
-		
-		if(a==null){
+
+	public static boolean isSorted(final long[] a) {
+
+		if (a == null) {
 			return false;
-		}
-		else if(a.length==0){
+		} else if (a.length == 0) {
 			return true;
 		}
-		for (int i = 0; i < a.length-1; i++) {
-			if(a[i]>a[i+1]){
+		for (int i = 0; i < a.length - 1; i++) {
+			if (a[i] > a[i + 1]) {
 				return false;
-			}			
+			}
 		}
 		return true;
 	}
-	
+
 	/**
 	 * StartValue and EndValue inclusive
+	 * 
 	 * @param startValue
 	 * @param endValue
 	 * @return int[]
 	 */
-	public static int[] fill(int startValue, int endValue){
-		
-		int n=Math.abs(startValue-endValue)+1;
-		int[] result=new int[n];
-		//5 > 1
-		if(startValue>endValue){
+	public static int[] fill(int startValue, int endValue) {
+
+		int n = Math.abs(startValue - endValue) + 1;
+		int[] result = new int[n];
+		// 5 > 1
+		if (startValue > endValue) {
 			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
+				result[i] = startValue;
 				startValue--;
 			}
 		}
-		//5 < 10
-		else{
+		// 5 < 10
+		else {
 			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
+				result[i] = startValue;
 				startValue++;
 			}
 		}
 		return result;
 	}
-	
+
 	/**
 	 * StartValue and EndValue inclusive
+	 * 
 	 * @param startValue
 	 * @param endValue
 	 * @return float[]
 	 */
-	public static float[] fill(float startValue, float endValue){
-		
-		int n=(int)Math.abs(startValue-endValue)+1;
-		float[] result=new float[n];
-		//5 > 1
-		if(startValue>endValue){
+	public static float[] fill(float startValue, float endValue) {
+
+		int n = (int) Math.abs(startValue - endValue) + 1;
+		float[] result = new float[n];
+		// 5 > 1
+		if (startValue > endValue) {
 			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
+				result[i] = startValue;
 				startValue--;
 			}
 		}
-		//5 < 10
-		else{
+		// 5 < 10
+		else {
 			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
+				result[i] = startValue;
 				startValue++;
 			}
 		}
 		return result;
 	}
-	
+
 	/**
 	 * StartValue and EndValue inclusive
+	 * 
 	 * @param startValue
 	 * @param endValue
 	 * @return long[]
 	 */
-	public static long[] fill(long startValue, long endValue){
-		
-		int n=(int)Math.abs(startValue-endValue)+1;
-		long[] result=new long[n];
-		//5 > 1
-		if(startValue>endValue){
-			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
-				startValue--;
-			}
-		}
-		//5 < 10
-		else{
-			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
-				startValue++;
-			}
-		}
-		return result;
-	}
-	
-	/**
-	 * StartValue and EndValue inclusive
-	 * @param startValue
-	 * @param endValue
-	 * @return double[]
-	 */
-	public static double[] fill(double startValue, double endValue){
-		
-		int n=(int)Math.abs(startValue-endValue)+1;
-		double[] result=new double[n];
-		//5 > 1
-		if(startValue>endValue){
-			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
-				startValue--;
-			}
-		}
-		//5 < 10
-		else{
-			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
-				startValue++;
-			}
-		}
-		return result;
-	}
-	
-	/**
-	 * StartValue and EndValue inclusive
-	 * @param startValue
-	 * @param endValue
-	 * @return double[]
-	 */
-	public static char[] fill(char startValue, char endValue){
-		
-		int n=(int)Math.abs(startValue-endValue)+1;
-		char [] result=new char[n];
-		if(startValue>endValue){
-			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
-				startValue--;
-			}
-		}
-		else{
-			for (int i = 0; i < n; i++) {
-				result[i]=startValue;
-				startValue++;
-			}
-		}
-		return result;
-	}
-	
-	public static void main(String[] args) {
+	public static long[] fill(long startValue, long endValue) {
 
-		char[] a=fill('f','a');
+		int n = (int) Math.abs(startValue - endValue) + 1;
+		long[] result = new long[n];
+		// 5 > 1
+		if (startValue > endValue) {
+			for (int i = 0; i < n; i++) {
+				result[i] = startValue;
+				startValue--;
+			}
+		}
+		// 5 < 10
+		else {
+			for (int i = 0; i < n; i++) {
+				result[i] = startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * StartValue and EndValue inclusive
+	 * 
+	 * @param startValue
+	 * @param endValue
+	 * @return double[]
+	 */
+	public static double[] fill(double startValue, double endValue) {
+
+		int n = (int) Math.abs(startValue - endValue) + 1;
+		double[] result = new double[n];
+		// 5 > 1
+		if (startValue > endValue) {
+			for (int i = 0; i < n; i++) {
+				result[i] = startValue;
+				startValue--;
+			}
+		}
+		// 5 < 10
+		else {
+			for (int i = 0; i < n; i++) {
+				result[i] = startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * StartValue and EndValue inclusive
+	 * 
+	 * @param startValue
+	 * @param endValue
+	 * @return double[]
+	 */
+	public static char[] fill(char startValue, char endValue) {
+
+		int n = (int) Math.abs(startValue - endValue) + 1;
+		char[] result = new char[n];
+		if (startValue > endValue) {
+			for (int i = 0; i < n; i++) {
+				result[i] = startValue;
+				startValue--;
+			}
+		} else {
+			for (int i = 0; i < n; i++) {
+				result[i] = startValue;
+				startValue++;
+			}
+		}
+		return result;
+	}
+
+	public static void main(final String[] args) {
+		//Reverse and reverseAll
+		char[] a = fill('f', 'a');
 		for (int i = 0; i < a.length; i++) {
-			System.out.print(a[i]+" ");
+			System.out.print(a[i] + " ");
 		}
 	}
 }
