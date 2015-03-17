@@ -2038,6 +2038,10 @@ public class ArrayUtils {
 		return a;
 	}
 	
+	public static int[] reverse(int[] a){
+		return reverse(a,0,a.length);
+	}
+	
 	public static void main(final String[] args) {
 		//Reverse and reverseAll
 		int[] a={1,2,3,4,5};
