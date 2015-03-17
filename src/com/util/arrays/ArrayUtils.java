@@ -2041,6 +2041,30 @@ public class ArrayUtils {
 	public static int[] reverse(int[] a){
 		return reverse(a,0,a.length);
 	}
+	/**
+	 * @param a
+	 * @param start inclusive
+	 * @param end exclusive
+	 * @return
+	 */
+	public static float[] reverse(float[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			float temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
 	
 	public static void main(final String[] args) {
 		//Reverse and reverseAll
