@@ -2041,6 +2041,7 @@ public class ArrayUtils {
 	public static int[] reverse(int[] a){
 		return reverse(a,0,a.length);
 	}
+	
 	/**
 	 * @param a
 	 * @param start inclusive
@@ -2064,6 +2065,10 @@ public class ArrayUtils {
 			end--;
 		}
 		return a;
+	}
+	
+	public static float[] reverse(float[] a){
+		return reverse(a,0,a.length);
 	}
 	
 	public static void main(final String[] args) {
