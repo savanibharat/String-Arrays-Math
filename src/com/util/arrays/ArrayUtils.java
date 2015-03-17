@@ -1,5 +1,6 @@
 package com.util.arrays;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -110,11 +111,11 @@ public class ArrayUtils {
 	 * @return 0 if null
 	 * @return obj.length
 	 */
-	public static int getArrayLenth(Object[] obj) {
+	public static int getArrayLenth(Object obj) {
 		if (obj == null) {
 			return 0;
 		}
-		return obj.length;
+		return Array.getLength(obj);
 	}
 
 	/**
@@ -2011,11 +2012,38 @@ public class ArrayUtils {
 		return result;
 	}
 
+	/**
+	 * Reverse entire or part of array
+	 * @param a
+	 * @param start - start inclusive
+	 * @param end - end exclusive
+	 * @return
+	 */
+	public static int[] reverse(int[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			int temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
+	
 	public static void main(final String[] args) {
 		//Reverse and reverseAll
-		char[] a = fill('f', 'a');
-		for (int i = 0; i < a.length; i++) {
-			System.out.print(a[i] + " ");
+		int[] a={1,2,3,4,5};
+		int[] res=reverse(a,0,2);
+		for (int i = 0; i < res.length; i++) {
+			System.out.print(res[i] + " ");
 		}
 	}
 }
