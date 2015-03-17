@@ -2038,6 +2038,11 @@ public class ArrayUtils {
 		return a;
 	}
 	
+	/**
+	 * reverse entire int[] array
+	 * @param a
+	 * @return
+	 */
 	public static int[] reverse(int[] a){
 		return reverse(a,0,a.length);
 	}
@@ -2067,12 +2072,22 @@ public class ArrayUtils {
 		return a;
 	}
 	
+	/**
+	 * reverse entire float[] array
+	 * @param a
+	 * @return
+	 */
 	public static float[] reverse(float[] a){
 		return reverse(a,0,a.length);
 	}
 	
 	public static void main(final String[] args) {
 		//Reverse and reverseAll
+		//remove and removeSeveral and removeAll
+		//isSameLength
+		//clone
+		//addValue(index), addValue(at end)
+		//addAll
 		int[] a={1,2,3,4,5};
 		int[] res=reverse(a,0,2);
 		for (int i = 0; i < res.length; i++) {
