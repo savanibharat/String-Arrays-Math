@@ -2081,15 +2081,184 @@ public class ArrayUtils {
 		return reverse(a,0,a.length);
 	}
 	
+	/**
+	 * @param a
+	 * @param start inclusive
+	 * @param end exclusive
+	 * @return
+	 */
+	public static long[] reverse(long[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			long temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
+	
+	/**
+	 * reverse entire double[] array
+	 * @param a
+	 * @return
+	 */
+	public static long[] reverse(long[] a){
+		return reverse(a,0,a.length);
+	}
+	
+	/**
+	 * @param a
+	 * @param start inclusive
+	 * @param end exclusive
+	 * @return
+	 */
+	public static double[] reverse(double[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			double temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
+	
+	/**
+	 * reverse entire double[] array
+	 * @param a
+	 * @return
+	 */
+	public static double[] reverse(double[] a){
+		return reverse(a,0,a.length);
+	}
+	
+	/**
+	 * @param a
+	 * @param start inclusive
+	 * @param end exclusive
+	 * @return
+	 */
+	public static byte[] reverse(byte[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			byte temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
+	
+	/**
+	 * reverse entire double[] array
+	 * @param a
+	 * @return
+	 */
+	public static byte[] reverse(byte[] a){
+		return reverse(a,0,a.length);
+	}
+	
+	/**
+	 * @param a
+	 * @param start inclusive
+	 * @param end exclusive
+	 * @return
+	 */
+	public static short[] reverse(short[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			short temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
+	
+	/**
+	 * reverse entire double[] array
+	 * @param a
+	 * @return
+	 */
+	public static short[] reverse(short[] a){
+		return reverse(a,0,a.length);
+	}
+	
+	/**
+	 * @param a
+	 * @param start inclusive
+	 * @param end exclusive
+	 * @return
+	 */
+	public static char[] reverse(char[] a, int start, int end){
+		
+		if(getArrayLenth(a)==0){
+			return a;
+		}
+		
+		start = start < 0 ? 0 : start;
+		end = end > (a.length - 1) ? a.length - 1 : end - 1;
+		
+		while(start<end){
+			char temp=a[start];
+			a[start]=a[end];
+			a[end]=temp;
+			start++;
+			end--;
+		}
+		return a;
+	}
+	
+	/**
+	 * reverse entire double[] array
+	 * @param a
+	 * @return
+	 */
+	public static char[] reverse(char[] a){
+		return reverse(a,0,a.length);
+	}
+	
 	public static void main(final String[] args) {
-		//Reverse and reverseAll
 		//remove and removeSeveral and removeAll
 		//isSameLength
 		//clone
 		//addValue(index), addValue(at end)
 		//addAll
 		int[] a={1,2,3,4,5};
-		int[] res=reverse(a,0,2);
+		int[] res=reverse(a,0,2);  
 		for (int i = 0; i < res.length; i++) {
 			System.out.print(res[i] + " ");
 		}
