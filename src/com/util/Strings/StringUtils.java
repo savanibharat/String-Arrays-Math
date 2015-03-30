@@ -1,6 +1,5 @@
 package com.util.strings;
 
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -21,6 +20,8 @@ public class StringUtils {
 	// Don't want to create instance of this class
 	/**
 	 * Does not Instantiates a new string utils.
+	 * There are Utility methods for class so we don't care which instance methods are 
+	 * operated upon as all will give same output as called from different instance.
 	 */
 	private StringUtils() {
 	}
@@ -28,14 +29,21 @@ public class StringUtils {
 	// Always use this function to avoid NullPointerException on Strings
 	/**
 	 * Resolve null string.
-	 *
+	 * If String is null then Empty String is returned.
+	 * If String is not null it is returned as it is.
+	 *  
+	 *  Input		Output
+	 *  str=null   	""
+	 *  str=""		"
+	 *  str="a"		"a"
+	 *  
 	 * @param str
 	 *            the str
 	 * @return the string
 	 */
 	public static String resolveNullString(String str) {
 		if (str == null) {
-			return "";
+		 	return "";
 		}
 		return str;
 	}
@@ -43,6 +51,13 @@ public class StringUtils {
 	// Check if String has length or not
 	/**
 	 * Checks for length.
+	 * If String is not null and length of String > 0 return true
+	 * else return false
+	 * 
+	 * Input		Output
+	 *  str=null   	false;
+	 *  str=""		false;
+	 *  str="a"		true
 	 *
 	 * @param str
 	 *            the str
@@ -55,7 +70,14 @@ public class StringUtils {
 	// check if the array is empty or not
 	/**
 	 * Checks if is array empty.
+	 * If obj[] is empty or obj[] is null then return true
+	 * else return false;
 	 *
+	 * Input				Output
+	 * obj=null				true
+	 * new Object[]{}		true
+	 * new Object[]{1}		false
+	 * 
 	 * @param obj
 	 *            the obj
 	 * @return true, if is array empty
@@ -67,6 +89,13 @@ public class StringUtils {
 	// Check if array is null or not
 	/**
 	 * Checks if is array null.
+	 * If the array is null return true
+	 * else return false;
+	 * Input				Output
+	 * obj=null				true
+	 * new Object[]{}		false
+	 * new Object[]{1}		false
+	 * 
 	 *
 	 * @param obj
 	 *            the obj
@@ -81,8 +110,16 @@ public class StringUtils {
 
 	// Checks if there is text in string(except space)
 	/**
-	 * Checks for text.
-	 *
+	 * Checks whether there is text in string or not excluding space
+	 * 
+	 * Input			Output
+	 * str=	null		false
+	 * str= ""			false
+	 * str="   "		false
+	 * str="a"			true
+	 * str="  a"		true
+	 * str="a  "		true
+	 * 
 	 * @param str
 	 *            the str
 	 * @return true, if successful
@@ -104,7 +141,14 @@ public class StringUtils {
 	// Check if there is white space. String with one whitespace will also
 	// return true
 	/**
-	 * Contains white space.
+	 * Checks if the string contains white space i.e space
+	 * Input		Output
+	 * str=""		false
+	 * str=" "		true
+	 * str="a"		false
+	 * str=" a"		true
+	 * str="a "		true
+	 * str="    "	true
 	 *
 	 * @param str
 	 *            the str
@@ -171,7 +215,9 @@ public class StringUtils {
 
 	// Trim first and last space from string
 	/**
-	 * Trim white spaces.
+	 * Trim white spaces from String. Leading and trailing spaces are removed
+	 * 
+	 * 
 	 *
 	 * @param str
 	 *            the str
@@ -1002,6 +1048,7 @@ public class StringUtils {
 	 *            the arguments
 	 */
 	public static void main(String[] args) {
+		
 		System.out.println("abcd".indexOf("a"));
 		System.out.println("abcd".indexOf('A'));
 		System.out.println("abcd".indexOf("b"));
