@@ -128,11 +128,11 @@ public class Matrix implements RealMatrix, MatrixOperations {
 	/**
 	 * Transpose of Matrix
 	 * */
-	
-	public Matrix transpose(){
-		
-		boolean isCompatible=Matrix.isMatrixCompatible(this);
-		if(isCompatible){
+
+	public Matrix transpose() {
+
+		boolean isCompatible = Matrix.isMatrixCompatible(this);
+		if (isCompatible) {
 			int row = this.getRowLength();
 			int col = this.getColumnLength();
 			double[][] c = new double[col][row];
@@ -145,55 +145,47 @@ public class Matrix implements RealMatrix, MatrixOperations {
 		}
 		return null;
 	}
-	
+
 	/**
-	 * Identity Matrix are n*n matrix and diagonall filled 
-	 * by 1.
+	 * Identity Matrix are n*n matrix and diagonall filled by 1.
 	 * 
 	 * [1]
 	 * 
-	 * [1,0]
-	 * [0,1]
+	 * [1,0] [0,1]
 	 * 
-	 * [1,0,0]
-	 * [0,1,0]
-	 * [0,0,1]
+	 * [1,0,0] [0,1,0] [0,0,1]
 	 * */
-	public static Matrix identityMatrix(int n){
-		
-		Matrix matrix=new Matrix(n,n);
-		
+	public static Matrix identityMatrix(int n) {
+
+		Matrix matrix = new Matrix(n, n);
+
 		for (int i = 0; i < n; i++) {
-			matrix.m[i][i]=1;
+			matrix.m[i][i] = 1;
 		}
 		matrix.displayMatrix();
 		return null;
-		
+
 	}
-	
+
 	/**
-	 * Matrix Of Ones
-	 * matrix of ones or all-ones matrix is a matrix where every element is equal to one.
-	 * [1,1]
+	 * Matrix Of Ones matrix of ones or all-ones matrix is a matrix where every
+	 * element is equal to one. [1,1]
 	 * 
-	 * [1,1]
-	 * [1,1]
+	 * [1,1] [1,1]
 	 * 
-	 * [1,1,1,1]
-	 * [1,1,1,1]
-	 * [1,1,1,1]
+	 * [1,1,1,1] [1,1,1,1] [1,1,1,1]
 	 * */
-	public static Matrix matrixOfOnes(int row, int column){
-		
-		Matrix matrix=new Matrix(row,column);
+	public static Matrix matrixOfOnes(int row, int column) {
+
+		Matrix matrix = new Matrix(row, column);
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
-				matrix.m[i][j]=1;
+				matrix.m[i][j] = 1;
 			}
 		}
 		return matrix;
 	}
-	
+
 	/**
 	 * This method is used to display the matrix in tabular form The
 	 * getRowLength(matrix) is used to get the total number of rows in matrix.
@@ -234,8 +226,7 @@ public class Matrix implements RealMatrix, MatrixOperations {
 	}
 
 	/**
-	 * 1 2
-	 * 3 4 5
+	 * 1 2 3 4 5
 	 * */
 	public static boolean additionCompatible(Matrix matA, Matrix matB) {
 		int colA = matA.getColumnLength();
@@ -289,6 +280,31 @@ public class Matrix implements RealMatrix, MatrixOperations {
 	 * */
 	public static boolean subtractionCompatible(Matrix matA, Matrix matB) {
 
+		return additionCompatible(matA, matB);
+	}
+
+	/**
+	 * This method is to be implemented
+	 * */
+	@Override
+	public Matrix divide(Matrix matrix) {
+
+		boolean isCompatibleMatrix = Matrix.divisionCompatible(this, matrix);
+		if (isCompatibleMatrix) {
+			int row = this.getRowLength();
+			int col = this.getColumnLength();
+			double[][] c = new double[row][col];
+			for (int i = 0; i < this.getRowLength(); i++) {
+				for (int j = 0; j < this.getColumnLength(); j++) {
+					c[i][j] = this.m[i][j] / matrix.m[i][j];
+				}
+			}
+			return new Matrix(c);
+		}
+		return null;
+	}
+
+	public static boolean divisionCompatible(Matrix matA, Matrix matB) {
 		return additionCompatible(matA, matB);
 	}
 
@@ -390,45 +406,35 @@ public class Matrix implements RealMatrix, MatrixOperations {
 		}
 		return null;
 	}
-	
-	public static void main(String[] args) {
 
-		// double[][] m1 = { { 1d, 2d, 3d }, { 2d, 5d, 3d } };
-		/*double[][] m1 = { { 1, 2, 3 }, {0,-6,7} };
-		double[][] m2 = { { 2, 1 }, { 3, -2 } };
-		Matrix mat1 = new Matrix(m1);
-		Matrix mat2 = new Matrix(m2);
-		mat1.displayMatrix();
-		mat2.displayMatrix();
-		double d = 1;
-		Matrix mat3 = mat1.transpose();
-		System.out.println();
-		mat3.displayMatrix();*/
-		Matrix m=Matrix.matrixOfOnes(3,3);
-		/**
-		 * q<-1:5 output q=1,2,3,4,5 
-		 * w<-1:5 output q=1,2,3,4,5
-		 * q+w add each elem with wach elem of other
-		 * q*2 multiply each elem with 2
-		 * 
-		 * */
-	}
-	
 	/**
 	 * This method is to be implemented
 	 * */
 	@Override
 	public Matrix copy() {
-		// TODO Auto-generated method stub
+		boolean isCompatible = Matrix.isMatrixCompatible(this);
+		if (isCompatible) {
+
+			int row = this.getRowLength();
+			int col = this.getColumnLength();
+			double[][] matrix = new double[row][col];
+			for (int i = 0; i < row; i++) {
+				for (int j = 0; j < col; j++) {
+					matrix[i][j] = this.m[i][j];
+				}
+			}
+			return new Matrix(matrix);
+		}
 		return null;
 	}
 
-	/**
-	 * This method is to be implemented
-	 * */
-	@Override
-	public Matrix divide(Matrix matrix) {
-		// TODO Auto-generated method stub
-		return null;
+	public static void main(String[] args) {
+
+		/**
+		 * q+w add each elem with wach elem of other q*2 multiply each elem with
+		 * 2
+		 * 
+		 * */
 	}
+
 }
