@@ -151,7 +151,6 @@ public class Frequency {
 		Iterator<Entry<String, Long>> iter = frequency.frequencyIterator();
 		while (iter.hasNext()) {
 			Entry<String, Long> entry = iter.next();
-			System.out.println(entry+".");
 			String K = entry.getKey();
 			Long V = entry.getValue();
 			if (freq.containsKey(K)) {

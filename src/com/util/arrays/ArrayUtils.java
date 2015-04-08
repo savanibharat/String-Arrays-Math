@@ -2175,7 +2175,7 @@ public class ArrayUtils {
 	}
 	
 	/**
-	 * reverse entire double[] array
+	 * reverse entire byte[] array
 	 * @param a
 	 * @return
 	 */
@@ -2209,7 +2209,7 @@ public class ArrayUtils {
 	}
 	
 	/**
-	 * reverse entire double[] array
+	 * reverse entire short[] array
 	 * @param a
 	 * @return
 	 */
@@ -2243,7 +2243,7 @@ public class ArrayUtils {
 	}
 	
 	/**
-	 * reverse entire double[] array
+	 * reverse entire char[] array
 	 * @param a
 	 * @return
 	 */
