@@ -18,8 +18,21 @@ public class Mean {
 	 *            the arguments
 	 */
 	public static void main(String[] args) {
-		System.out.println(Mean.meanDouble(new double[] { 1d, 2d, 3d, 4d, 5d,
-				6d }));
+		
+		//float, long, int, double
+		float[] f={1f, 2f, 3f, 4f, 5f,6f };
+		System.out.println(Mean.meanFloat(f));
+		
+		long[] l={1,2,3,4,5,6};
+		System.out.println(Mean.meanLong(l));
+		
+		int[] i={1,2,3,4,5,6};
+		System.out.println(Mean.meanInteger(i));
+		
+		double[] d={ 1d, 2d, 3d, 4d, 5d, 6d };
+		System.out.println(Mean.meanDouble(d));
+		
+		//System.out.println(Mean.meanDouble(new double[] { 1d, 2d, 3d, 4d, 5d, 6d }));
 	}
 
 	/**
@@ -42,7 +55,7 @@ public class Mean {
 	 * @return the double
 	 */
 	public static double meanDouble(double[] arr) {
-		return Summation.sumDouble(ArrayUtils.toList(arr));
+		return Summation.sumDouble(ArrayUtils.toList(arr))/arr.length;
 	}
 
 	/**
@@ -52,8 +65,8 @@ public class Mean {
 	 *            the list
 	 * @return the long
 	 */
-	public static long meanLong(List<Long> list) {
-		return Summation.sumLong(list) / list.size();
+	public static double meanLong(List<Long> list) {
+		return (double) Summation.sumLong(list) / list.size();
 	}
 
 	/**
@@ -63,8 +76,8 @@ public class Mean {
 	 *            the arr
 	 * @return the long
 	 */
-	public static long meanLong(long[] arr) {
-		return Summation.sumLong(ArrayUtils.toList(arr));
+	public static double meanLong(long[] arr) {
+		return (double) Summation.sumLong(ArrayUtils.toList(arr))/arr.length;
 	}
 
 	/**
@@ -74,8 +87,8 @@ public class Mean {
 	 *            the list
 	 * @return the float
 	 */
-	public static float meanFloat(List<Float> list) {
-		return Summation.sumFloat(list) / list.size();
+	public static double meanFloat(List<Float> list) {
+		return (double) Summation.sumFloat(list) / list.size();
 	}
 
 	/**
@@ -85,8 +98,8 @@ public class Mean {
 	 *            the arr
 	 * @return the float
 	 */
-	public static float meanFloat(float[] arr) {
-		return Summation.sumFloat(ArrayUtils.toList(arr));
+	public static double meanFloat(float[] arr) {
+		return (double) Summation.sumFloat(ArrayUtils.toList(arr))/arr.length;
 	}
 
 	/**
@@ -96,8 +109,8 @@ public class Mean {
 	 *            the list
 	 * @return the int
 	 */
-	public static int meanInteger(List<Integer> list) {
-		return Summation.sumInteger(list) / list.size();
+	public static double meanInteger(List<Integer> list) {
+		return (double) Summation.sumInteger(list) / list.size();
 	}
 
 	/**
@@ -107,8 +120,8 @@ public class Mean {
 	 *            the arr
 	 * @return the int
 	 */
-	public static int meanInteger(int[] arr) {
-		return Summation.sumInteger(ArrayUtils.toList(arr));
+	public static double meanInteger(int[] arr) {
+		return (double) Summation.sumInteger(ArrayUtils.toList(arr))/arr.length;
 	}
 
 }
